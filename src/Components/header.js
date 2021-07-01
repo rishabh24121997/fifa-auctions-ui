@@ -17,7 +17,7 @@ class Header extends React.Component{
                     <Navbar.Brand href="#home">FIFA Auctions</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/home">Profile</Nav.Link>
-                        <Nav.Link href="#features">Squad</Nav.Link>
+                        <Nav.Link href="/squads">Squad</Nav.Link>
                         <Nav.Link href="/transactions">History</Nav.Link>
                     </Nav>
                 </Navbar>
