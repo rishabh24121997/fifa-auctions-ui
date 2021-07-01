@@ -44,3 +44,26 @@
 li {
     margin-bottom: 1.2rem;
 }
+
+table, td, th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 15px;
+ }
+
+ thead {
+     background-color: aquamarine;
+ }
+
+ tbody {
+     background-color: blanchedalmond;
+ }
+
+ table {
+     background-color: rgb(26, 146, 194);
+ }
+
+ 
+
+ tr:hover {background-color: #5cbae6;}
+ 
