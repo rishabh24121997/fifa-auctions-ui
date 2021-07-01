@@ -1,0 +1,21 @@
+.header {
+    display: block;
+    background-color: #2b6777;
+    color: #fff;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+.navbar-brand {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+}
