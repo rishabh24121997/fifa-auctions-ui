@@ -23,11 +23,11 @@ class Home extends React.Component {
                     </div>
                     <div className="right">
 
-                    <Card className="card" align="center">
-                        <Card.Header className="card-header">RISHABH SHARMA</Card.Header>
-                        <Card.Body className="card-body">
+                    <Card className="card-home" align="center">
+                        <Card.Header className="card-header-home">RISHABH SHARMA</Card.Header>
+                        <Card.Body className="card-body-home">
                             <Card.Text>
-                                <ul className="ul">
+                                <ul className="ul-home">
                                     <li><strong>Club :</strong> Real Madrid </li>
                                     <li><strong>Money :</strong> 250 </li>
                                     <li><strong>Last Season Performance :</strong> 1st </li>
