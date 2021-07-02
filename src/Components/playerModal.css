@@ -1,0 +1,56 @@
+.modal-80w { max-width: 80% !important; }
+
+.modal-header-player {
+    background-color: #52ab98;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal-title {
+    position: relative;
+    left: 2rem;
+}
+
+.player-attributes {
+    display: flex;
+}
+
+.green {
+    color: green;
+}
+
+.yellow {
+    color: rgb(202, 202, 17);
+}
+
+.red { 
+    color: red;
+}
+
+.modal-body {
+    background-color: #c8d8e4;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #2b6777;
+    padding: 2%;
+}
+
+.modal-footer {
+    background-color: #f2f2f2;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-6 {
+    position: relative;
+    left: 2rem;
+    font-size: 90%;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.ul-modal {
+    font-size: 75%;
+}
+
+.player-info {
+    margin-right: 1rem;
+}

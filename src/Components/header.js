@@ -14,7 +14,7 @@ class Header extends React.Component{
         return (
             <div className="header">
                 <Navbar bg="light" variant="light">
-                    <Navbar.Brand href="#home">FIFA Auctions</Navbar.Brand>
+                    <Navbar.Brand href="/home">FIFA Auctions</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/home">Profile</Nav.Link>
                         <Nav.Link href="/squads">Squad</Nav.Link>

@@ -5,14 +5,18 @@ import { Accordion, Card, Button }from 'react-bootstrap';
 import { TransactionData } from './transactionsList';
 
 
+
 class Transactions extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
             totalMoney : 10000,
             role: ''
+           
         }
     }
+
+    
 
     render() {
         return(
@@ -45,6 +49,7 @@ class Transactions extends React.Component{
                                     <ul>
                                         <li className="transaction-each">
                                             <strong><span className="def">{transaction.Player}</span></strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
+                                            
                                         </li>     
                                     </ul>
                                 )
@@ -57,17 +62,19 @@ class Transactions extends React.Component{
                                     </ul>
                                 )
                             } else if(this.state.role == 'ATT') {
-                                console.log(transaction.Player)
                                 return(
                                     <ul>
                                         <li className="transaction-each">
-                                            <strong><span className="att">{transaction.Player}</span></strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
+                                            <strong><span className="att" ><Button onClick={this.openModal}>{transaction.Player}</Button></span></strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
+                                            
                                         </li>     
                                     </ul>
+                                    
                                 )
                             }
                              })}
                      </div>
+                     
                 </div>
             </div>
         )

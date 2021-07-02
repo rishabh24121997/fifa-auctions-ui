@@ -2,12 +2,31 @@ import React from 'react';
 import './home.css';
 import {Container, Table} from 'react-bootstrap';
 import Header from './header';
-import {Squad, SquadGridColumns} from "./SquadProps"
+import {Squad, SquadGridColumns} from "./SquadProps";
+import PlayerModal from './playerModal';
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Squads extends React.Component {
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+            modalOpen: false,
+            playerDetails: []
+        };
+    }
+
+    openModal = (player) => {
+        this.setState({
+            modalOpen: true,
+            playerDetails: player
+        })
+    }
+
+    closeModal = () => {
+        this.setState({
+            modalOpen: false
+        })
     }
 
     render() {
@@ -26,6 +45,7 @@ export default class Squads extends React.Component {
                         <th>{SquadGridColumns.PrefFoot}</th>
                         <th>{SquadGridColumns.WeakFoot}</th>
                         <th>{SquadGridColumns.Price}</th>
+                        <th>Player Details</th>
                         </tr>
                     
                     </thead>
@@ -42,6 +62,11 @@ export default class Squads extends React.Component {
                                 <td>{element.PrefFoot}</td>
                                 <td>{element.WeakFoot}</td>
                                 <td>{element.Price}</td>
+                                <td>
+                                    <Button  onClick={() => {this.openModal(element)}}>
+                                        VIEW DETAILS
+                                    </Button>
+                                </td>
                             </tr>
                             )
                         })
@@ -49,6 +74,7 @@ export default class Squads extends React.Component {
                     </tbody>
                 </Table>
                 </Container>
+                <PlayerModal open={this.state.modalOpen} onClose={this.closeModal} player={this.state.playerDetails}  center/>
             </div>
         )
     }

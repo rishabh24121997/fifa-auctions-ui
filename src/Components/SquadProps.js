@@ -22,7 +22,7 @@ export const Squad = [{
     Price: 10000
 },
 {
-    PlayerName: "Messi",
+    PlayerName: "C. Ronaldo dos Santos Aveiro",
     Ovr: "100",
     Club: "Barcelona",
     Position: "Any",
