@@ -21,7 +21,6 @@ export default class Squads extends React.Component {
             modalOpen: true
         })
         this.state.playerDetails = player
-        console.log(this.state.playerDetails)
     }
 
     closeModal = () => {
@@ -38,7 +37,7 @@ export default class Squads extends React.Component {
                 <Table striped bordered hover>
                     <thead>
                         <tr>
-                        <th>{SquadGridColumns.PlayerName}</th>
+                        <th>{SquadGridColumns.Name}</th>
                         <th>{SquadGridColumns.Ovr}</th>
                         <th>{SquadGridColumns.Club}</th>
                         <th>{SquadGridColumns.Position}</th>
@@ -55,7 +54,7 @@ export default class Squads extends React.Component {
                         Squad.map(element => {
                             return (
                                 <tr>
-                                <td>{element.PlayerName}</td>
+                                <td>{element.Name}</td>
                                 <td>{element.Ovr}</td>
                                 <td>{element.Club}</td>
                                 <td>{element.Position}</td>

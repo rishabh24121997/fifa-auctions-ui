@@ -1,7 +1,7 @@
 import React from 'react';
 import { PlayerAttribute } from './playerAttributes';
 import { Modal, Button, Card } from 'react-bootstrap';
-import { playerAttributes } from '../APIServices';
+import { singlePlayerData } from '../APIServices';
 import "./playerModal.css";
 
 
@@ -9,8 +9,14 @@ class PlayerModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+            PlayerAttribute: []
         }
+    }
+
+    componentDidMount = () => {
+        singlePlayerData(this.props.player.Name).then(res => {
+            console.log(res.data)
+        })
     }
 
 
@@ -27,13 +33,13 @@ class PlayerModal extends React.Component {
                 >
                 <Modal.Header onClick={this.props.onClose} className="modal-header-player">
                     <Modal.Title id="contained-modal-title-vcenter">
-                    {this.props.player.PlayerName} 
+                    {this.props.player.Name} 
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {
                     PlayerAttribute.map(playerAtt => {
-                        if(playerAtt.Name === this.props.player.PlayerName) {
+                        if(playerAtt.PlayerName === this.props.player.Name) {
                             return(
                                 <div className="player-attributes">
                                     <div className="player-info">

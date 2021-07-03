@@ -1,0 +1,22 @@
+.att-playerlist {
+    background-color: rgb(195, 195, 233);
+}
+
+.mid-playerlist {
+    background-color: rgb(157, 228, 157);
+}
+
+.def-playerlist {
+    background-color: rgb(216, 216, 148);
+}
+
+.gk-playerlist {
+    background-color: rgb(241, 192, 100);
+}
+
+.table-playerlist {
+    margin-left: 4rem !important;
+    margin-right: 4rem !important;
+    font-size: 80% !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+}

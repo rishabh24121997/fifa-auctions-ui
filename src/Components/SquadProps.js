@@ -1,5 +1,5 @@
 export const SquadGridColumns = {
-    PlayerName: "Player Name",
+    Name: "Player Name",
     Ovr: "Overall",
     Club: "Club",
     Position: "Position",
@@ -11,7 +11,7 @@ export const SquadGridColumns = {
 }
 
 export const Squad = [{
-    PlayerName: "Messi",
+    Name: "Messi",
     Ovr: "100",
     Club: "Barcelona",
     Position: "Any",
@@ -22,7 +22,7 @@ export const Squad = [{
     Price: 10000
 },
 {
-    PlayerName: "C. Ronaldo dos Santos Aveiro",
+    Name: "C. Ronaldo dos Santos Aveiro",
     Ovr: "100",
     Club: "Barcelona",
     Position: "Any",
@@ -32,7 +32,7 @@ export const Squad = [{
     SkillRating: 5,
     Price: 10000
 },{
-    PlayerName: "Messi",
+    Name: "Messi",
     Ovr: "100",
     Club: "Barcelona",
     Position: "Any",
@@ -42,7 +42,7 @@ export const Squad = [{
     SkillRating: 5,
     Price: 10000
 },{
-    PlayerName: "Messi",
+    Name: "Messi",
     Ovr: "100",
     Club: "Barcelona",
     Position: "Any",
@@ -52,7 +52,7 @@ export const Squad = [{
     SkillRating: 5,
     Price: 10000
 },{
-    PlayerName: "Messi",
+    Name: "Messi",
     Ovr: "100",
     Club: "Barcelona",
     Position: "Any",
@@ -62,7 +62,7 @@ export const Squad = [{
     SkillRating: 5,
     Price: 10000
 },{
-    PlayerName: "Messi",
+    Name: "Messi",
     Ovr: "100",
     Club: "Barcelona",
     Position: "Any",
@@ -72,7 +72,7 @@ export const Squad = [{
     SkillRating: 5,
     Price: 10000
 },{
-    PlayerName: "Messi",
+    Name: "Messi",
     Ovr: "100",
     Club: "Barcelona",
     Position: "Any",
@@ -82,7 +82,7 @@ export const Squad = [{
     SkillRating: 5,
     Price: 10000
 },{
-    PlayerName: "Messi",
+    Name: "Messi",
     Ovr: "100",
     Club: "Barcelona",
     Position: "Any",
@@ -92,7 +92,7 @@ export const Squad = [{
     SkillRating: 5,
     Price: 10000
 },{
-    PlayerName: "Messi",
+    Name: "Messi",
     Ovr: "100",
     Club: "Barcelona",
     Position: "Any",
