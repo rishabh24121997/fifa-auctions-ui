@@ -1,7 +1,7 @@
 import React from 'react';
 import { PlayerAttribute } from './playerAttributes';
 import { Modal, Button, Card } from 'react-bootstrap';
-import { singlePlayerData } from '../APIServices';
+
 import "./playerModal.css";
 
 
@@ -14,9 +14,7 @@ class PlayerModal extends React.Component {
     }
 
     componentDidMount = () => {
-        singlePlayerData(this.props.player.Name).then(res => {
-            console.log(res.data)
-        })
+        
     }
 
 

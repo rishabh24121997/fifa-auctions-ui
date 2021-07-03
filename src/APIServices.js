@@ -21,6 +21,5 @@ export const singlePlayerData = async (playerName) => {
     })
 
     const response = await data.json();
-    console.log(response.data)
     return response
 }

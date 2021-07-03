@@ -6,6 +6,7 @@ import { playerAttributes } from '../APIServices';
 import "./playerList.css";
 import PlayerModal from './playerModal';
 import { Button } from 'react-bootstrap';
+import { singlePlayerData } from '../APIServices';
 
 class PlayerList extends React.Component {
     constructor(props) {
@@ -28,10 +29,15 @@ class PlayerList extends React.Component {
     } 
 
     openModal = (player) => {
-        this.state.singlePlayer = player
+        singlePlayerData(player.Name).then(res => {
+            this.setState({
+                singlePlayer : res.data[0]
+            })
+        })
         this.setState({
             modalOpen: true
         })
+        
     }
 
     closeModal = () => {
