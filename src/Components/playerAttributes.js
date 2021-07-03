@@ -7,6 +7,9 @@ export const PlayerAttribute = [
         Position: "ST",
         Height: "180cm",
         Weight: "75kg",
+        PrefferedFoot: "R",
+        WeakFoot: "4",
+        SkillMoves: "5",
         //Physical
         Pace: "100",
         Acceleration: "100",
@@ -50,10 +53,6 @@ export const PlayerAttribute = [
         Reflexes: "100",
         Handling: "100",
         Speed: "100",
-        Kicking: "100",
-        //Info
-        PrefferedFoot: "R",
-        WeakFoot: "4",
-        SkillMoves: "5"
+        Kicking: "100"
     }
 ]

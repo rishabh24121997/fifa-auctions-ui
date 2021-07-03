@@ -19,22 +19,23 @@
 }
 
 .card-home {
-    background-color: #c8d8e4;
-    padding: 5%;
-    margin-right: 12rem;
-    border-radius: 2.5rem;
-    box-shadow: 5px 5px #000;
+    background-color: #c8d8e4 !important;
+    padding: 5% !important;
+    margin-right: 12rem !important;
+    border-radius: 2.5rem !important;
+    box-shadow: 5px 5px 15px #000 !important;
 }
 
 .card-header-home {
-    color: #2b6777;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    color: #2b6777 !important;
+    font-size: 2.5rem !important;
+    margin-bottom: 2rem !important;
+    background-color: rgba(0,0,0,.0) !important;
 }
 
 .card-body-home {
-    color: #2b6777;
-    font-size: 1.0rem;
+    color: #2b6777 !important;
+    font-size: 1.0rem !important;
 }
 
 .ul-home {
@@ -52,19 +53,43 @@ table, td, th {
  }
 
  thead {
-     background-color: aquamarine;
+     background-color: #52ab98;
+     color: #fff;
  }
 
  tbody {
-     background-color: blanchedalmond;
+     background-color: #fff;
  }
 
  table {
      background-color: rgb(26, 146, 194);
+     margin-top: 2rem;
  }
 
+ .btn-primary {
+    color: #2b6777 !important;
+    background-color: #c8d8e4 !important;
+    border-color: #2b6777 !important;
+}
 
+.btn {
+    display: inline-block !important ;
+    line-height: .8rem !important;
+    color: #212529;
+    text-align: center !important;
+    text-decoration: none !important;
+    vertical-align: middle !important;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 2px solid transparent !important;
+    padding: .375rem .75rem;
+    font-size: .8rem !important;
+    border-radius: .5rem  !important;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
  
 
- tr:hover {background-color: #5cbae6;}
+ tr:hover {background-color: #c8d8e4;}
  

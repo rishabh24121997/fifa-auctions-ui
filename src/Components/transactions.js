@@ -65,7 +65,7 @@ class Transactions extends React.Component{
                                 return(
                                     <ul>
                                         <li className="transaction-each">
-                                            <strong><span className="att" ><Button onClick={this.openModal}>{transaction.Player}</Button></span></strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
+                                            <strong><span className="att" >{transaction.Player}</span></strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
                                             
                                         </li>     
                                     </ul>

@@ -13,12 +13,13 @@ class Header extends React.Component{
     render() {
         return (
             <div className="header">
-                <Navbar bg="light" variant="light">
-                    <Navbar.Brand href="/home">FIFA Auctions</Navbar.Brand>
+                <Navbar>
+                    <Navbar.Brand href="/home" style={{color:"#ffffff"}} className="navbar-brand-header">FIFA Auctions</Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link href="/home">Profile</Nav.Link>
-                        <Nav.Link href="/squads">Squad</Nav.Link>
-                        <Nav.Link href="/transactions">History</Nav.Link>
+                        <Nav.Link href="/home" style={{color:"#ffffff"}}>Profile</Nav.Link>
+                        <Nav.Link href="/squads" style={{color:"#ffffff"}}>Squad</Nav.Link>
+                        <Nav.Link href="/transactions" style={{color:"#ffffff"}}>History</Nav.Link>
+                        <Nav.Link href="/playerList" style={{color:"#ffffff"}}>All Players</Nav.Link>
                     </Nav>
                 </Navbar>
             </div>

@@ -3,6 +3,7 @@
     background-color: #2b6777;
     color: #fff;
     padding-top: 0.5%;
+    box-shadow: 0px 15px 40px grey;
 }
 
 .nav-link {
@@ -15,10 +16,28 @@
 }
 
 
-.navbar-brand {
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2rem;
-    margin-bottom: 2.5rem;
+.navbar-brand-header {
+    color: #fff !important;
+    text-decoration: none !important;;
+    font-family: Arial, Helvetica, sans-serif !important;
+    padding-top: 0 !important;;
+    padding-bottom: .25rem !important;;
+    margin-right: 0rem !important;;
+    margin-left: 5rem !important;;
+    font-size: 2.25rem !important;;
+    text-decoration: none !important;;
+    white-space: nowrap !important;;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+    margin-bottom: 0;
+    list-style: none;
+    margin-left: auto !important;
+    margin-top: 1rem !important;
+    position: relative !important;
+    top: .5rem !important;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
