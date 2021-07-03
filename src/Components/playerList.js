@@ -2,6 +2,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import Header from "./header.js";
 import { PlayerAttribute } from './playerAttributes';
+import { playerAttributes } from '../APIServices';
 
 class PlayerList extends React.Component {
     constructor(props) {
@@ -10,6 +11,11 @@ class PlayerList extends React.Component {
 
         }
     }
+
+    componentDidMount = () => {
+        const getPlayers = playerAttributes();
+        console.log(getPlayers)
+    } 
 
     render() {
         return (

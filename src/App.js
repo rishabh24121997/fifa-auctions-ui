@@ -5,6 +5,7 @@ import Squads from "./Components/squads"
 import PlayerList from "./Components/playerList"
 import Home from './Components/home';
 import Transactions from './Components/transactions';
+require('dotenv').config()
 
 function App() {
   return (

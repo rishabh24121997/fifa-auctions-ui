@@ -13,10 +13,7 @@ class PlayerModal extends React.Component {
         }
     }
 
-    componentDidMount = () => {
-        const getPlayer = playerAttributes(this.props.player.PlayerName);
-        console.log(getPlayer)
-    } 
+
 
 
     render() {

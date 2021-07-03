@@ -25,3 +25,7 @@ ul {
 .att {
     color: blue;
 }
+
+.transactions-body {
+    margin-top: 2rem;
+}

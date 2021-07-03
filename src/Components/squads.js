@@ -12,15 +12,16 @@ export default class Squads extends React.Component {
         super(props);
         this.state = {
             modalOpen: false,
-            playerDetails: []
+            playerDetails: {}
         };
     }
 
     openModal = (player) => {
         this.setState({
-            modalOpen: true,
-            playerDetails: player
+            modalOpen: true
         })
+        this.state.playerDetails = player
+        console.log(this.state.playerDetails)
     }
 
     closeModal = () => {
