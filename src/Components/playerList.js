@@ -44,7 +44,6 @@ class PlayerList extends React.Component {
         this.setState({
             modalOpen: false
         })
-        window.location.reload()
     }
 
     render() {
