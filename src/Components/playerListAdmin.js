@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import Header from "./header.js";
+import HeaderAdmin from "./headerAdmin";
 import { PlayerAttribute } from './playerAttributes';
 import { playerAttributes } from '../APIServices';
 import "./playerList.css";
@@ -8,13 +8,15 @@ import PlayerModal from './playerModal';
 import { Button } from 'react-bootstrap';
 import { singlePlayerData } from '../APIServices';
 import SearchField from "react-search-field";
+import TransferModal from './transferModal.js';
 
-class PlayerList extends React.Component {
+class PlayerListAdmin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             role : '',
             modalOpen: false,
+            transferModalOpen: false,
             PlayerAttribute: [],
             singlePlayer: [],
             playerName: ''
@@ -56,10 +58,23 @@ class PlayerList extends React.Component {
         })
     }
 
+    openTransferModal = (player) => {
+        this.setState({
+            transferModalOpen: true,
+            singlePlayer : player
+        })
+    }
+
+    closeTransferModal = () => {
+        this.setState({
+            transferModalOpen: false
+        })
+    }
+
     render() {
         return (
             <div className="all-players">
-                <Header />
+                <HeaderAdmin />
                 <div className="search-playerlist">
                     <SearchField
                         placeholder="Search Player..."
@@ -80,6 +95,7 @@ class PlayerList extends React.Component {
                                 <th>Weak Foot</th>
                                 <th>Skill Moves</th>
                                 <th>Player Attributes</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -109,7 +125,12 @@ class PlayerList extends React.Component {
                                                     <td>{player.SkillMoves}</td>
                                                     <td>
                                                         <Button  onClick={() => {this.openModal(player)}}>
-                                                            VIEW DETAILS
+                                                            Details
+                                                        </Button>
+                                                    </td>
+                                                    <td>
+                                                        <Button  onClick={() => {this.openTransferModal(player)}}>
+                                                            Transfer
                                                         </Button>
                                                     </td>
                                                 </tr>
@@ -128,7 +149,7 @@ class PlayerList extends React.Component {
                                                     <td>{player.SkillMoves}</td>
                                                     <td>
                                                         <Button  onClick={() => {this.openModal(player)}}>
-                                                            VIEW DETAILS
+                                                            Details
                                                         </Button>
                                                     </td>
                                                 </tr>
@@ -147,7 +168,7 @@ class PlayerList extends React.Component {
                                                     <td>{player.SkillMoves}</td>
                                                     <td>
                                                         <Button  onClick={() => {this.openModal(player)}}>
-                                                            VIEW DETAILS
+                                                            Details
                                                         </Button>
                                                     </td>
                                                 </tr>
@@ -166,7 +187,7 @@ class PlayerList extends React.Component {
                                                     <td>{player.SkillMoves}</td>
                                                     <td>
                                                         <Button  onClick={() => {this.openModal(player)}}>
-                                                            VIEW DETAILS
+                                                            Details
                                                         </Button>
                                                     </td>
                                                 </tr>
@@ -188,7 +209,7 @@ class PlayerList extends React.Component {
                                                         <td>{player.SkillMoves}</td>
                                                         <td>
                                                             <Button  onClick={() => {this.openModal(player)}}>
-                                                                VIEW DETAILS
+                                                                Details
                                                             </Button>
                                                         </td>
                                                     </tr>
@@ -207,7 +228,7 @@ class PlayerList extends React.Component {
                                                         <td>{player.SkillMoves}</td>
                                                         <td>
                                                             <Button  onClick={() => {this.openModal(player)}}>
-                                                                VIEW DETAILS
+                                                                Details
                                                             </Button>
                                                         </td>
                                                     </tr>
@@ -226,7 +247,7 @@ class PlayerList extends React.Component {
                                                         <td>{player.SkillMoves}</td>
                                                         <td>
                                                             <Button  onClick={() => {this.openModal(player)}}>
-                                                                VIEW DETAILS
+                                                                Details
                                                             </Button>
                                                         </td>
                                                     </tr>
@@ -245,7 +266,7 @@ class PlayerList extends React.Component {
                                                         <td>{player.SkillMoves}</td>
                                                         <td>
                                                             <Button  onClick={() => {this.openModal(player)}}>
-                                                                VIEW DETAILS
+                                                                Details
                                                             </Button>
                                                         </td>
                                                     </tr>
@@ -259,9 +280,10 @@ class PlayerList extends React.Component {
                     </Table>
                 </div>
                 <PlayerModal open={this.state.modalOpen} onClose={this.closeModal} player={this.state.singlePlayer}  center/>
+                <TransferModal open={this.state.transferModalOpen} onClose={this.closeTransferModal} player={this.state.singlePlayer}  center/>
             </div>
         )
     }
 }
 
-export default PlayerList;
+export default PlayerListAdmin;

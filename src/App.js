@@ -5,6 +5,7 @@ import Squads from "./Components/squads"
 import PlayerList from "./Components/playerList"
 import Home from './Components/home';
 import Transactions from './Components/transactions';
+import PlayerListAdmin from './Components/playerListAdmin';
 require('dotenv').config()
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
         </switch>
         <switch>
           <Route component={PlayerList} exact path="/playerList"/>
+        </switch>
+        <switch>
+          <Route component={PlayerListAdmin} exact path="/playerListAdmin"/>
         </switch>
       </Router>
 
