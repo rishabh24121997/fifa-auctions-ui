@@ -20,30 +20,28 @@ class TransferModal extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    componentDidMount = () => {
-        
-        fifaPlayers().then(res => {
-            this.setState({
-                FIFAPlayers: res.data
+    componentDidUpdate = (prevProps) => {
+        if(prevProps !== this.props){
+            fifaPlayers().then(res => {
+                this.setState({
+                    FIFAPlayers: res.data
+                })
             })
-        })
-
-        this.setState({
-            playerName: this.props.player.Name,
-            playerFrom: this.props.player.Team,
-            playerPosition: this.props.player.Position
-        })
-
-        console.log(this.state.playerName)
-        console.log(this.state.playerFrom)
-        console.log(this.state.playerPosition)
+    
+            this.setState({
+                playerName: this.props.player.Name,
+                playerFrom: this.props.player.Team,
+                playerPosition: this.props.player.Position
+            })
+        }
     }
 
     onSubmit = () => {
         
         playerTransaction(this.state.playerName, this.state.playerPrice, this.state.playerFrom, this.state.playerTo, this.state.playerPosition).then(res => {
             console.log(res)
-        })
+        });
+        this.props.onClose();
     }
 
     handleChange (e) {
