@@ -61,6 +61,7 @@ class PlayerListAdmin extends React.Component {
 
     openTransferModal = (player) => {
         singlePlayerData(player.Name).then(res => {
+        
             this.setState({
                 singlePlayer : res.data[0],
                 transferModalOpen: true
