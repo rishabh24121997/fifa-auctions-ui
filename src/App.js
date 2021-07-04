@@ -5,6 +5,7 @@ import Squads from "./Components/squads"
 import PlayerList from "./Components/playerList"
 import Home from './Components/home';
 import Transactions from './Components/transactions';
+import Matches from './Components/matches';
 import PlayerListAdmin from './Components/playerListAdmin';
 import TransactionsAdmin from './Components/transfersAdmin';
 require('dotenv').config()
@@ -28,6 +29,9 @@ function App() {
         </switch>
         <switch>
           <Route component={TransactionsAdmin} exact path="/transactionsAdmin"/>
+        </switch>
+        <switch>
+          <Route component={Matches} exact path="/matches"/>
         </switch>
       </Router>
 
