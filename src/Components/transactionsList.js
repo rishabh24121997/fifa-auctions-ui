@@ -7,6 +7,7 @@ export const TransactionData = [
         From: "Auction",
         WeakFoot: "4",   
         Price: "1000", 
+        By: "RMA"
     },
     {
         Player: "Cristiano Ronaldo",
@@ -15,7 +16,8 @@ export const TransactionData = [
         Age: "29",
         From: "Auction",
         WeakFoot: "4",  
-        Price: "3200",   
+        Price: "3200", 
+        By: "RMA"  
     },
     {
         Player: "Jan Vertonghen",
@@ -24,7 +26,8 @@ export const TransactionData = [
         Age: "27",
         From: "Auction",
         WeakFoot: "4",  
-        Price: "750",   
+        Price: "750",  
+        By: "RMA" 
     },
     {
         Player: "Leroy Sane",
@@ -33,7 +36,8 @@ export const TransactionData = [
         Age: "27",
         From: "Arsenal",
         WeakFoot: "4", 
-        Price: "500",    
+        Price: "500",  
+        By: "RMA"  
     },
     {
         Player: "N'Golo Kante",
@@ -42,7 +46,8 @@ export const TransactionData = [
         Age: "27",
         From: "PSG",
         WeakFoot: "4",    
-        Price: "2000", 
+        Price: "2000",
+        By: "RMA" 
     },
     
   ];

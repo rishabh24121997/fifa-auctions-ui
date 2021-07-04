@@ -38,6 +38,7 @@ class PlayerListAdmin extends React.Component {
             this.setState({
                 singlePlayer : res.data[0]
             })
+            console.log(this.state.singlePlayer)
         })
         this.setState({
             modalOpen: true
@@ -59,9 +60,11 @@ class PlayerListAdmin extends React.Component {
     }
 
     openTransferModal = (player) => {
-        this.setState({
-            transferModalOpen: true,
-            singlePlayer : player
+        singlePlayerData(player.Name).then(res => {
+            this.setState({
+                singlePlayer : res.data[0],
+                transferModalOpen: true
+            })
         })
     }
 
@@ -152,6 +155,11 @@ class PlayerListAdmin extends React.Component {
                                                             Details
                                                         </Button>
                                                     </td>
+                                                    <td>
+                                                        <Button  onClick={() => {this.openTransferModal(player)}}>
+                                                            Transfer
+                                                        </Button>
+                                                    </td>
                                                 </tr>
                                             )
                                         } else if(this.state.role === "MID") {
@@ -171,6 +179,11 @@ class PlayerListAdmin extends React.Component {
                                                             Details
                                                         </Button>
                                                     </td>
+                                                    <td>
+                                                        <Button  onClick={() => {this.openTransferModal(player)}}>
+                                                            Transfer
+                                                        </Button>
+                                                    </td>
                                                 </tr>
                                             )
                                         } else if(this.state.role === "ATT") {
@@ -188,6 +201,11 @@ class PlayerListAdmin extends React.Component {
                                                     <td>
                                                         <Button  onClick={() => {this.openModal(player)}}>
                                                             Details
+                                                        </Button>
+                                                    </td>
+                                                    <td>
+                                                        <Button  onClick={() => {this.openTransferModal(player)}}>
+                                                            Transfer
                                                         </Button>
                                                     </td>
                                                 </tr>
@@ -212,6 +230,11 @@ class PlayerListAdmin extends React.Component {
                                                                 Details
                                                             </Button>
                                                         </td>
+                                                        <td>
+                                                        <Button  onClick={() => {this.openTransferModal(player)}}>
+                                                            Transfer
+                                                        </Button>
+                                                    </td>
                                                     </tr>
                                                 )
                                             } else if(this.state.role === "DEF") {
@@ -231,6 +254,11 @@ class PlayerListAdmin extends React.Component {
                                                                 Details
                                                             </Button>
                                                         </td>
+                                                        <td>
+                                                        <Button  onClick={() => {this.openTransferModal(player)}}>
+                                                            Transfer
+                                                        </Button>
+                                                    </td>
                                                     </tr>
                                                 )
                                             } else if(this.state.role === "MID") {
@@ -250,6 +278,11 @@ class PlayerListAdmin extends React.Component {
                                                                 Details
                                                             </Button>
                                                         </td>
+                                                        <td>
+                                                        <Button  onClick={() => {this.openTransferModal(player)}}>
+                                                            Transfer
+                                                        </Button>
+                                                    </td>
                                                     </tr>
                                                 )
                                             } else if(this.state.role === "ATT") {
@@ -269,6 +302,11 @@ class PlayerListAdmin extends React.Component {
                                                                 Details
                                                             </Button>
                                                         </td>
+                                                        <td>
+                                                        <Button  onClick={() => {this.openTransferModal(player)}}>
+                                                            Transfer
+                                                        </Button>
+                                                    </td>
                                                     </tr>
                                                 )
                                             }

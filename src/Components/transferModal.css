@@ -31,7 +31,9 @@
     background-color: #c8d8e4;
     font-family: Arial, Helvetica, sans-serif;
     color: #2b6777;
-    padding: 2%;
+    padding: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .modal-footer {
@@ -54,3 +56,5 @@
 .player-info {
     margin-right: 1rem;
 }
+
+.modal-50w { max-width: 50% !important; }

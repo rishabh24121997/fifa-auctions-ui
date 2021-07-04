@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Button, Col, Form } from 'react-bootstrap';
-import {fifaPlayers, singlePlayerData} from "../APIServices"
+import {fifaPlayers, playerTransaction} from "../APIServices"
 
 import "./transferModal.css";
 
@@ -10,20 +10,47 @@ class TransferModal extends React.Component {
         super(props);
         this.state = {
             PlayerAttribute: {},
-            FIFAPlayers: []
+            FIFAPlayers: [],
+            playerName: '',
+            playerPrice: '',
+            playerFrom: '',
+            playerTo: '',
+            playerPosition: ''
         }
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount = () => {
+        
         fifaPlayers().then(res => {
             this.setState({
                 FIFAPlayers: res.data
             })
         })
+
+        this.setState({
+            playerName: this.props.player.Name,
+            playerFrom: this.props.player.Team,
+            playerPosition: this.props.player.Position
+        })
+
+        console.log(this.state.playerName)
+        console.log(this.state.playerFrom)
+        console.log(this.state.playerPosition)
     }
 
+    onSubmit = () => {
+        
+        playerTransaction(this.state.playerName, this.state.playerPrice, this.state.playerFrom, this.state.playerTo, this.state.playerPosition).then(res => {
+            console.log(res)
+        })
+    }
 
-
+    handleChange (e) {
+        this.setState({
+          [e.target.name]: e.target.value
+        })
+      }
 
 
 
@@ -38,7 +65,7 @@ class TransferModal extends React.Component {
                 size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
-                dialogClassName="modal-80w"
+                dialogClassName="modal-50w"
                 >
                 <Modal.Header onClick={this.props.onClose} className="modal-header-player">
                     <Modal.Title id="contained-modal-title-vcenter">
@@ -48,26 +75,31 @@ class TransferModal extends React.Component {
                 <Modal.Body>
                     <Form>
                         <Form.Row>
-                            <Form.Group controlId="formGridCity">
+                            <Form.Group controlId="playerName">
                             <Form.Label>Player Name</Form.Label>
-                            <Form.Control type="text" placeholder={this.props.player.Name} readOnly />
+                            <Form.Control name="playerName" type="text" placeholder={this.props.player.Name} readOnly />
                             </Form.Group>
 
-                            <Form.Group controlId="formGridState">
+                            <Form.Group controlId="playerFrom">
+                            <Form.Label>From</Form.Label>
+                            <Form.Control name="playerFrom" type="text" placeholder={this.props.player.Team} readOnly />
+                            </Form.Group>
+
+                            <Form.Group controlId="playerTo">
                             <Form.Label>Team</Form.Label>
-                            <Form.Control as="select" defaultValue="Choose...">
+                            <Form.Control onChange={this.handleChange} name="playerTo" as="select" defaultValue="Choose..." value={this.state.playerTo}>
                                 <option>Choose Club..</option>
                                 {this.state.FIFAPlayers.map(fifaPlayer => {
                                     return (
-                                        <option>{fifaPlayer.Club}</option>
+                                        <option>{fifaPlayer.ID}</option>
                                     )
                                 })}
                             </Form.Control>
                             </Form.Group>
 
-                            <Form.Group controlId="formGridZip">
+                            <Form.Group>
                             <Form.Label>Price</Form.Label>
-                            <Form.Control />
+                            <Form.Control onChange={this.handleChange} type="text" name="playerPrice" value={this.state.playerPrice}/>
                             </Form.Group>
                         </Form.Row>
 
@@ -76,7 +108,7 @@ class TransferModal extends React.Component {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={this.props.onClose}>Close</Button>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" onClick={this.onSubmit}>
                             Submit
                         </Button>
                 </Modal.Footer>

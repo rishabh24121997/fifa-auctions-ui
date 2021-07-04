@@ -17,8 +17,7 @@ class HeaderAdmin extends React.Component{
                     <Navbar.Brand href="/home" style={{color:"#ffffff"}} className="navbar-brand-header">FIFA Auctions</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/home" style={{color:"#ffffff"}}>Profile</Nav.Link>
-                        <Nav.Link href="/squads" style={{color:"#ffffff"}}>Squad</Nav.Link>
-                        <Nav.Link href="/transactions" style={{color:"#ffffff"}}>History</Nav.Link>
+                        <Nav.Link href="/transactionsAdmin" style={{color:"#ffffff"}}>Transfers</Nav.Link>
                         <Nav.Link href="/playerListAdmin" style={{color:"#ffffff"}}>All Players</Nav.Link>
                     </Nav>
                 </Navbar>
