@@ -153,10 +153,10 @@ class Matches extends React.Component {
                                     }
                                     return (
                                         <tr>
-                                        <td>{homeTeamFull}</td>
+                                        <td><span className={match.HomeScore > match.AwayScore ? "team-bold" : match.HomeScore === match.AwayScore ? "team-italics": null}>{homeTeamFull}</span></td>
                                         <td className="score-td">{match.HomeScore}</td>
                                         <td className="score-td">{match.AwayScore}</td>
-                                        <td>{awayTeamFull}</td>
+                                        <td><span className={match.HomeScore < match.AwayScore ? "team-bold" : match.HomeScore === match.AwayScore ? "team-italics": null}>{awayTeamFull}</span></td>
                                     </tr>
                                     )
                                 })

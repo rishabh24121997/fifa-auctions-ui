@@ -70,3 +70,10 @@
     width: 10%;
 }
 
+.team-bold {
+    font-weight: bold;
+}
+
+.team-italics {
+    font-style: italic;
+}
