@@ -8,6 +8,7 @@ import Transactions from './Components/transactions';
 import Matches from './Components/matches';
 import PlayerListAdmin from './Components/playerListAdmin';
 import TransactionsAdmin from './Components/transfersAdmin';
+import LeagueTable from './Components/leagueTable';
 require('dotenv').config()
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
         </switch>
         <switch>
           <Route component={Matches} exact path="/matches"/>
+        </switch>
+        <switch>
+          <Route component={LeagueTable} exact path="/league"/>
         </switch>
       </Router>
 

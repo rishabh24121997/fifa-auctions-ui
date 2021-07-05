@@ -24,9 +24,6 @@ class Matches extends React.Component {
                 matchData: res.data
             })
         })
-        this.state.matchData.forEach(match => {
-            
-        }) 
 
         fifaPlayers().then(res => {
             this.setState({
@@ -38,14 +35,11 @@ class Matches extends React.Component {
     
     matchDelete = (matchID) => {
         deleteMatch(matchID).then(res => {
-            console.log(res.data)
+            
         })
         window.location.reload()
     }
 
-    // matchUpdate = (matchID) => {
-    //     updateMatch(
-    // }
 
     handleChange (e) {
         this.setState({
@@ -55,7 +49,7 @@ class Matches extends React.Component {
 
       onSubmit = () => {
           allMatches(this.state.homeTeam,this.state.awayTeam,this.state.homeScore,this.state.awayScore,this.state.season).then(res => {
-                console.log(res)
+                
           })
       }
 
@@ -123,8 +117,8 @@ class Matches extends React.Component {
                             <thead>
                                 <tr>
                                 <th>Home Team</th>
-                                <th>Home Score</th>
-                                <th>Away Score</th>
+                                <th>Score</th>
+                                
                                 <th>Away Team</th>
                                 <th>Action</th>
                                 </tr>
@@ -135,7 +129,7 @@ class Matches extends React.Component {
                                 this.state.matchData.map(match => {
                                     var homeTeamFull = ""
                                     var awayTeamFull = ""
-                                    console.log(match)
+                                    
                                     if(match.HomeTeam === "RMA") {
                                         homeTeamFull = "Real Madrid"
                                     }else if(match.HomeTeam === "PSG") {
@@ -166,14 +160,9 @@ class Matches extends React.Component {
                                     return (
                                         <tr>
                                         <td><span className={match.HomeScore > match.AwayScore ? "team-bold" : match.HomeScore === match.AwayScore ? "team-italics": null}>{homeTeamFull}</span></td>
-                                        <td className="score-td">{match.HomeScore}</td>
-                                        <td className="score-td">{match.AwayScore}</td>
+                                        <td className="score-td">{match.HomeScore}-{match.AwayScore}</td>
                                         <td><span className={match.HomeScore < match.AwayScore ? "team-bold" : match.HomeScore === match.AwayScore ? "team-italics": null}>{awayTeamFull}</span></td>
                                         <td>
-                                        {/* onClick={() => {this.matchUpdate(match.MatchID)}} */}
-                                            <Button className="update-button" >
-                                                            Update
-                                            </Button>
                                             <Button onClick={() => {this.matchDelete(match.MatchID)}}>
                                                             Delete
                                             </Button>

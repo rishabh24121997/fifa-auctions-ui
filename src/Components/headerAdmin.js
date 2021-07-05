@@ -18,6 +18,7 @@ class HeaderAdmin extends React.Component{
                     <Nav className="mr-auto">
                         <Nav.Link href="/home" style={{color:"#ffffff"}}>Profile</Nav.Link>
                         <Nav.Link href="/matches" style={{color:"#ffffff"}}>Matches</Nav.Link>
+                        <Nav.Link href="/league" style={{color:"#ffffff"}}>League Table</Nav.Link>
                         <Nav.Link href="/transactionsAdmin" style={{color:"#ffffff"}}>Transfers</Nav.Link>
                         <Nav.Link href="/playerListAdmin" style={{color:"#ffffff"}}>All Players</Nav.Link>
                     </Nav>

@@ -18,6 +18,7 @@ class Header extends React.Component{
                     <Nav className="mr-auto">
                         <Nav.Link href="/home" style={{color:"#ffffff"}}>Profile</Nav.Link>
                         <Nav.Link href="/matches" style={{color:"#ffffff"}}>Matches</Nav.Link>
+                        <Nav.Link href="/league" style={{color:"#ffffff"}}>League Table</Nav.Link>
                         <Nav.Link href="/squads" style={{color:"#ffffff"}}>Squad</Nav.Link>
                         <Nav.Link href="/transactions" style={{color:"#ffffff"}}>History</Nav.Link>
                         <Nav.Link href="/playerList" style={{color:"#ffffff"}}>All Players</Nav.Link>
