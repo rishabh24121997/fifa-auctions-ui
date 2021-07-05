@@ -90,3 +90,44 @@ export const playerTransaction = async (playerName, playerPrice, playerFrom, pla
     const response = response1.message + " " + response2.message;
     return response
 }
+
+export const allMatches = async (homeTeam, awayTeam, homeScore, awayScore, season) => {
+    const url = "http://localhost:8000/api/matches";
+    var details = {
+        'homeTeam': homeTeam,
+        'awayTeam': awayTeam,
+        'homeScore': homeScore,
+        'awayScore': awayScore,
+        'season': season
+    };
+    var formBody = [];
+        for (var property in details) {
+        var encodedKey = encodeURIComponent(property);
+        var encodedValue = encodeURIComponent(details[property]);
+        formBody.push(encodedKey + "=" + encodedValue);
+        }
+    formBody = formBody.join("&");      
+    const data = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/x-www-form-urlencoded"
+        },
+        body: formBody
+    })
+
+    const response = await data.json();
+    return response
+}
+
+export const getMatches = async () => {
+    const url = "http://localhost:8000/api/allmatches";
+    const data = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json"
+        }
+    })
+
+    const response = await data.json();
+    return response
+}
