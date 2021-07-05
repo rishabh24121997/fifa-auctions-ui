@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderAdmin from './headerAdmin';
-import {fifaPlayers, allMatches, getMatches} from "../APIServices";
+import {fifaPlayers, allMatches, getMatches,deleteMatch, updateMatch} from "../APIServices";
 import { Form, Row, Col, Button, Card, Table } from 'react-bootstrap';
 import "./matches.css";
 
@@ -34,6 +34,18 @@ class Matches extends React.Component {
             })
         })
     }
+
+    
+    matchDelete = (matchID) => {
+        deleteMatch(matchID).then(res => {
+            console.log(res.data)
+        })
+        window.location.reload()
+    }
+
+    // matchUpdate = (matchID) => {
+    //     updateMatch(
+    // }
 
     handleChange (e) {
         this.setState({
@@ -114,7 +126,7 @@ class Matches extends React.Component {
                                 <th>Home Score</th>
                                 <th>Away Score</th>
                                 <th>Away Team</th>
-                                
+                                <th>Action</th>
                                 </tr>
                             
                             </thead>
@@ -157,6 +169,15 @@ class Matches extends React.Component {
                                         <td className="score-td">{match.HomeScore}</td>
                                         <td className="score-td">{match.AwayScore}</td>
                                         <td><span className={match.HomeScore < match.AwayScore ? "team-bold" : match.HomeScore === match.AwayScore ? "team-italics": null}>{awayTeamFull}</span></td>
+                                        <td>
+                                        {/* onClick={() => {this.matchUpdate(match.MatchID)}} */}
+                                            <Button className="update-button" >
+                                                            Update
+                                            </Button>
+                                            <Button onClick={() => {this.matchDelete(match.MatchID)}}>
+                                                            Delete
+                                            </Button>
+                                        </td>
                                     </tr>
                                     )
                                 })

@@ -131,3 +131,43 @@ export const getMatches = async () => {
     const response = await data.json();
     return response
 }
+
+export const deleteMatch = async (matchID) => {
+    const url = "http://localhost:8000/api/matchdelete/" + matchID;
+    const data = await fetch(url, {
+        method: "DELETE",
+        headers: {
+            "Content-Type" : "application/json"
+        }
+    })
+
+    const response = await data.json();
+    return response
+}
+
+export const updateMatch = async (homeTeam, awayTeam, homeScore, awayScore, matchID) => {
+    const url = "http://localhost:8000/api/matchupdate/" + matchID;
+    var details = {
+        'homeTeam': homeTeam,
+        'awayTeam': awayTeam,
+        'homeScore': homeScore,
+        'awayScore': awayScore
+    };
+    var formBody = [];
+        for (var property in details) {
+        var encodedKey = encodeURIComponent(property);
+        var encodedValue = encodeURIComponent(details[property]);
+        formBody.push(encodedKey + "=" + encodedValue);
+        }
+    formBody = formBody.join("&");      
+    const data = await fetch(url, {
+        method: "PATCH",
+        headers: {
+            "Content-Type" : "application/x-www-form-urlencoded"
+        },
+        body: formBody
+    })
+
+    const response = await data.json();
+    return response
+}
