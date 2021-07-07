@@ -38,17 +38,17 @@ class Transactions extends React.Component{
                                  
                             if(this.state.role == 'GK') {
                                 return(
-                                    <ul>
-                                        <li className="transaction-each">
-                                            <strong><span className="gk">{transaction.Player}</span></strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
+                                    <ul >
+                                        <li className="transaction-each gk">
+                                            <strong>{transaction.Player} ({transaction.Position})</strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
                                         </li>     
                                     </ul>
                                 )
                             } else if(this.state.role == 'DEF') {
                                 return(
                                     <ul>
-                                        <li className="transaction-each">
-                                            <strong><span className="def">{transaction.Player}</span></strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
+                                        <li className="transaction-each def">
+                                            <strong>{transaction.Player} ({transaction.Position})</strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
                                             
                                         </li>     
                                     </ul>
@@ -56,16 +56,16 @@ class Transactions extends React.Component{
                             } else if(this.state.role == 'MID') {
                                 return(
                                     <ul>
-                                        <li className="transaction-each">
-                                            <strong><span className="mid">{transaction.Player}</span></strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
+                                        <li className="transaction-each mid">
+                                            <strong>{transaction.Player} ({transaction.Position})</strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
                                         </li>     
                                     </ul>
                                 )
                             } else if(this.state.role == 'ATT') {
                                 return(
                                     <ul>
-                                        <li className="transaction-each">
-                                            <strong><span className="att" >{transaction.Player}</span></strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
+                                        <li className="transaction-each att">
+                                            <strong>{transaction.Player} ({transaction.Position})</strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
                                             
                                         </li>     
                                     </ul>
