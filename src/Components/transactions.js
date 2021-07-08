@@ -1,8 +1,9 @@
 import React from 'react';
-import Header from './header';
+import HeaderAdmin from './headerAdmin';
 import './transactions.css';
 import { Accordion, Card, Button }from 'react-bootstrap';
 import { TransactionData } from './transactionsList';
+import { allTransactions } from '../APIServices';
 
 
 
@@ -10,21 +11,30 @@ class Transactions extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            totalMoney : 10000,
-            role: ''
+            role: '',
+            TransactionData: []
            
         }
     }
+
+    componentDidMount = () => {
+        allTransactions().then(res => {
+            this.setState({
+                TransactionData: res.data
+            })
+        })
+    }
+
 
     
 
     render() {
         return(
             <div className="trasactions">
-                <Header />
+                <HeaderAdmin />
                 <div className="transactions-body">
                     <div>
-                        {TransactionData.map((transaction, key) => {
+                        {this.state.TransactionData.map((transaction, key) => {
                             // {this.state.totalMoney = this.state.totalMoney - transaction.Price}
                             if(transaction.Position == 'GK') {
                                 this.state.role = 'GK'
@@ -38,9 +48,9 @@ class Transactions extends React.Component{
                                  
                             if(this.state.role == 'GK') {
                                 return(
-                                    <ul >
+                                    <ul>
                                         <li className="transaction-each gk">
-                                            <strong>{transaction.Player} ({transaction.Position})</strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
+                                            <strong>{transaction.PlayerName} ({transaction.Position})</strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.FromClub}</strong> <br />
                                         </li>     
                                     </ul>
                                 )
@@ -48,7 +58,7 @@ class Transactions extends React.Component{
                                 return(
                                     <ul>
                                         <li className="transaction-each def">
-                                            <strong>{transaction.Player} ({transaction.Position})</strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
+                                            <strong>{transaction.PlayerName} ({transaction.Position})</strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.FromClub}</strong><br />
                                             
                                         </li>     
                                     </ul>
@@ -57,7 +67,7 @@ class Transactions extends React.Component{
                                 return(
                                     <ul>
                                         <li className="transaction-each mid">
-                                            <strong>{transaction.Player} ({transaction.Position})</strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
+                                            <strong>{transaction.PlayerName} ({transaction.Position})</strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.FromClub}</strong><br />
                                         </li>     
                                     </ul>
                                 )
@@ -65,7 +75,7 @@ class Transactions extends React.Component{
                                 return(
                                     <ul>
                                         <li className="transaction-each att">
-                                            <strong>{transaction.Player} ({transaction.Position})</strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.From}</strong><br />
+                                            <strong>{transaction.PlayerName} ({transaction.Position})</strong>  bought for <strong>{transaction.Price}</strong> from <strong>{transaction.FromClub}</strong><br />
                                             
                                         </li>     
                                     </ul>
