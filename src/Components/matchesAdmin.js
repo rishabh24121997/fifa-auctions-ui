@@ -10,7 +10,8 @@ class MatchesAdmin extends React.Component {
         this.state = {
             FIFAPlayers: [],
             season: 1,
-            matchData: []
+            matchData: [],
+            user: sessionStorage.getItem("user")
         }
         this.handleChange = this.handleChange.bind(this)
     }
@@ -54,6 +55,7 @@ class MatchesAdmin extends React.Component {
       }
 
     render() {
+       if(this.state.user === "Admin") {
         return (
             <div className="matches">
                 <HeaderAdmin />
@@ -177,6 +179,7 @@ class MatchesAdmin extends React.Component {
                 </div>
             </div>
         )
+       }
     }
 }
 

@@ -132,6 +132,19 @@ export const getMatches = async () => {
     return response
 }
 
+export const getTeamPlayers = async (team) => {
+    const url = "http://localhost:8000/api/teamPrice/" + team;
+    const data = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json"
+        }
+    })
+
+    const response = await data.json();
+    return response
+}
+
 export const deleteMatch = async (matchID) => {
     const url = "http://localhost:8000/api/matchdelete/" + matchID;
     const data = await fetch(url, {

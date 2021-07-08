@@ -69,7 +69,7 @@ class Matches extends React.Component {
                                 <th>Score</th>
                                 
                                 <th>Away Team</th>
-                                <th>Action</th>
+                                {/* <th>Action</th> */}
                                 </tr>
                             
                             </thead>
@@ -111,11 +111,11 @@ class Matches extends React.Component {
                                         <td><span className={match.HomeScore > match.AwayScore ? "team-bold" : match.HomeScore === match.AwayScore ? "team-italics": null}>{homeTeamFull}</span></td>
                                         <td className="score-td">{match.HomeScore}-{match.AwayScore}</td>
                                         <td><span className={match.HomeScore < match.AwayScore ? "team-bold" : match.HomeScore === match.AwayScore ? "team-italics": null}>{awayTeamFull}</span></td>
-                                        <td>
+                                        {/* <td>
                                             <Button onClick={() => {this.matchDelete(match.MatchID)}}>
                                                             Delete
                                             </Button>
-                                        </td>
+                                        </td> */}
                                     </tr>
                                     )
                                 })

@@ -40,6 +40,7 @@
 
 .ul-home {
     list-style-type: none;
+    text-align: left;
 }
 
 li {
@@ -93,3 +94,34 @@ table, td, th {
 
  tr:hover {background-color: #c8d8e4;}
  
+ .details {
+     display: flex;
+ }
+
+ .left-bot {
+    position: relative;
+ }
+
+ .card-text {
+     display: flex;
+ }
+
+ .login {
+     margin-left: 10rem;
+     margin-right: 10rem;
+     margin-top: 5rem;
+     
+     
+ }
+
+ .login-card {
+     padding: 2%;
+     background-color: #c8d8e4 !important;
+     color:  #2b6777 !important;
+     width: 50%;
+ }
+
+ .submit-button {
+     position: relative !important;
+     top: .5rem !important;
+ }

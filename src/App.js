@@ -10,6 +10,7 @@ import PlayerListAdmin from './Components/playerListAdmin';
 import TransactionsAdmin from './Components/transfersAdmin';
 import LeagueTable from './Components/leagueTable';
 import MatchesAdmin from './Components/matchesAdmin';
+import Login from './Components/login';
 require('dotenv').config()
 
 function App() {
@@ -39,7 +40,10 @@ function App() {
           <Route component={LeagueTable} exact path="/league"/>
         </switch>
         <switch>
-          <Route component={MatchesAdmin} exact path="/matchesAdminy7u7uyhjn"/>
+          <Route component={MatchesAdmin} exact path="/matchesAdmin"/>
+        </switch>
+        <switch>
+          <Route component={Login} exact path="/"/>
         </switch>
       </Router>
 
