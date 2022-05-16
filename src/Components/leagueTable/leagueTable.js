@@ -1,9 +1,9 @@
 import React from 'react';
-import { getMatches } from '../APIServices';
+import { getMatches } from '../../APIServices';
 import { Table } from 'react-bootstrap';
-import Header from './header';
+import Header from '../header/header';
 import "./leaguetable.css"
-import HeaderAdmin from './headerAdmin';
+import HeaderAdmin from '../header/headerAdmin';
 
 class LeagueTable extends React.Component {
     constructor(props) {
@@ -90,7 +90,7 @@ class LeagueTable extends React.Component {
     }
 
     render() {
-        if(this.state.user === "Admin") {
+        
             return (
                 <div>
                     <div className={this.state.page === "home" ? "none" : null}>
@@ -150,67 +150,67 @@ class LeagueTable extends React.Component {
                     </div>
                 </div>
             )
-        } else {
-            return (
-                <div>
-                    <div className={this.state.page === "home" ? "none" : null}>
-                        <Header />
-                    </div>
-                    <div className="league-div">
-                        <Table striped hover classname="table-league">
-                            <thead style={{ fontSize: "1rem" }}>
-                                <tr>
-                                    <th>Team Name</th>
-                                    <th>Played</th>
-                                    <th>Won</th>
-                                    <th>Draw</th>
-                                    <th>Lost</th>
-                                    <th>GF</th>
-                                    <th>GA</th>
-                                    <th>GD</th>
-                                    <th>Points</th>
-                                </tr>
+        //  else {
+        //     return (
+        //         <div>
+        //             <div className={this.state.page === "home" ? "none" : null}>
+        //                 <Header />
+        //             </div>
+        //             <div className="league-div">
+        //                 <Table striped hover classname="table-league">
+        //                     <thead style={{ fontSize: "1rem" }}>
+        //                         <tr>
+        //                             <th>Team Name</th>
+        //                             <th>Played</th>
+        //                             <th>Won</th>
+        //                             <th>Draw</th>
+        //                             <th>Lost</th>
+        //                             <th>GF</th>
+        //                             <th>GA</th>
+        //                             <th>GD</th>
+        //                             <th>Points</th>
+        //                         </tr>
     
-                            </thead>
-                            <tbody style={{ fontSize: ".75rem" }}>
-                                {
-                                    this.state.teams.map(element => {
+        //                     </thead>
+        //                     <tbody style={{ fontSize: ".75rem" }}>
+        //                         {
+        //                             this.state.teams.map(element => {
                                         
-                                        var homeTeamFull = ''
-                                        if (element.name === "RMA") {
-                                            homeTeamFull = "Real Madrid"
-                                        } else if (element.name === "PSG") {
-                                            homeTeamFull = "Paris Saint Germain"
-                                        } else if (element.name === "BAR") {
-                                            homeTeamFull = "FC Barcelona"
-                                        } else if (element.name === "JUV") {
-                                            homeTeamFull = "Juventus"
-                                        } else if (element.name === "TOT") {
-                                            homeTeamFull = "Tottenhum Hotspurs"
-                                        } else if (element.name === "ARS") {
-                                            homeTeamFull = "Arsenal"
-                                        }
-                                        return (
-                                            <tr>
-                                                <td>{homeTeamFull}</td>
-                                                <td>{element.won + element.lost + element.draw}</td>
-                                                <td>{element.won}</td>
-                                                <td>{element.draw}</td>
-                                                <td>{element.lost}</td>
-                                                <td>{element.GF}</td>
-                                                <td>{element.GA}</td>
-                                                <td>{element.GD}</td>
-                                                <td>{element.points}</td>
-                                            </tr>
-                                        )
-                                    })
-                                }
-                            </tbody>
-                        </Table>
-                    </div>
-                </div>
-            )
-        }
+        //                                 var homeTeamFull = ''
+        //                                 if (element.name === "RMA") {
+        //                                     homeTeamFull = "Real Madrid"
+        //                                 } else if (element.name === "PSG") {
+        //                                     homeTeamFull = "Paris Saint Germain"
+        //                                 } else if (element.name === "BAR") {
+        //                                     homeTeamFull = "FC Barcelona"
+        //                                 } else if (element.name === "JUV") {
+        //                                     homeTeamFull = "Juventus"
+        //                                 } else if (element.name === "TOT") {
+        //                                     homeTeamFull = "Tottenhum Hotspurs"
+        //                                 } else if (element.name === "ARS") {
+        //                                     homeTeamFull = "Arsenal"
+        //                                 }
+        //                                 return (
+        //                                     <tr>
+        //                                         <td>{homeTeamFull}</td>
+        //                                         <td>{element.won + element.lost + element.draw}</td>
+        //                                         <td>{element.won}</td>
+        //                                         <td>{element.draw}</td>
+        //                                         <td>{element.lost}</td>
+        //                                         <td>{element.GF}</td>
+        //                                         <td>{element.GA}</td>
+        //                                         <td>{element.GD}</td>
+        //                                         <td>{element.points}</td>
+        //                                     </tr>
+        //                                 )
+        //                             })
+        //                         }
+        //                     </tbody>
+        //                 </Table>
+        //             </div>
+        //         </div>
+        //     )
+        // }
     }
 }
 

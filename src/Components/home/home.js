@@ -1,20 +1,19 @@
 import React from 'react';
-import {ReactComponent as RMA} from "../Assets/RMA.svg";
+import {ReactComponent as RMA} from "../../Assets/RMA.svg";
 import './home.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Header from './header';
-import LeagueTable from './leagueTable';
-import { getTeamPlayers } from '../APIServices';
-import HeaderAdmin from './headerAdmin';
+import Header from '../header/header';
+import LeagueTable from '../leagueTable/leagueTable';
+import { getTeamPlayers, updateFifaPlayerData } from '../../APIServices';
+import HeaderAdmin from '../header/headerAdmin';
 
 class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: sessionStorage.getItem("user"),
             page: "home",
-            fifaPlayer: '',
+            fifaPlayer: sessionStorage.getItem("user"),
             playerName: '',
             club: '',
             footballers: [],
@@ -53,10 +52,13 @@ class Home extends React.Component {
                 money: this.state.money - teamWorth
             })
         })
+        updateFifaPlayerData(this.state.fifaPlayer, this.state.money, this.state.teamWorth, this.state.salary).then(res => {
+            console.log(res.data)
+        })
     }
 
     render() {
-        if(this.state.user === "Admin") {
+        if(this.state.fifaPlayer === "Admin") {
             return (
                 <div className="home">
                     <HeaderAdmin />

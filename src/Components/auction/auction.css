@@ -1,0 +1,91 @@
+.fifa-player-details {
+    padding: 0 1% 0 1%;
+    background-color: #282c34;
+}
+
+.fifa-player-details input {
+    margin: 1% 0 1% 1%;
+}
+
+.fifa-player-details button {
+    margin: 1% !important;
+}
+
+.fifa-players {
+    margin: 1% 1% 1% 1%;
+    width: 100%;
+}
+
+.fifa-players img {
+    border-radius: 30%;
+}
+
+.fifa-players .card {
+    background-color: rgb(236, 236, 236);
+}
+
+.fifa-players .card-header {
+    background-color: #7e7e7e;
+    color: #fff;
+}
+
+.fifa-players .card-body span {
+    margin: 0 1px 0 1px;
+    font-size: x-small;
+}
+
+.fifa-players .card-body {
+    padding: 5px;
+}
+
+.fifa-players .card-body button {
+    margin: 5px 0px 5px 0px;
+}
+
+.fifa-player-list {
+    height: 600px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 1%;
+    background-color: #2b6777;
+}
+
+.auction-page {
+    background-color: #fff;
+    padding: 5%;
+}
+
+.auction-page .card{
+    margin: 1%;
+}
+
+.auction-page .card-header {
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.auction-page span {
+    margin: 2%;
+}
+
+.auction-page .overall {
+    font-size: 35px;
+    font-weight: 900;
+}
+
+.auction-page .position {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.red {
+    color: rgb(153, 10, 10);
+}
+
+.green {
+    color: rgb(52, 172, 16);
+}
+
+.yellow {
+    color: rgb(158, 131, 13);
+}

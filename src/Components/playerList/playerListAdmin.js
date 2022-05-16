@@ -1,14 +1,13 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import HeaderAdmin from "./headerAdmin";
-import { PlayerAttribute } from './playerAttributes';
-import { playerAttributes } from '../APIServices';
+import HeaderAdmin from "../header/headerAdmin";
+import { playerAttributes } from '../../APIServices';
 import "./playerList.css";
-import PlayerModal from './playerModal';
+import PlayerModal from '../playerModal/playerModal';
 import { Button } from 'react-bootstrap';
-import { singlePlayerData } from '../APIServices';
+import { singlePlayerData } from '../../APIServices';
 import SearchField from "react-search-field";
-import TransferModal from './transferModal.js';
+import TransferModal from '../transfer/transferModal';
 
 class PlayerListAdmin extends React.Component {
     constructor(props) {
@@ -77,7 +76,7 @@ class PlayerListAdmin extends React.Component {
     }
 
     render() {
-        if(this.state.user === "Admin") {
+        
             return (
                 <div className="all-players">
                     <HeaderAdmin />
@@ -107,13 +106,13 @@ class PlayerListAdmin extends React.Component {
                             <tbody>
                                 {
                                     this.state.PlayerAttribute.map(player => {
-                                        if(player.Position == 'GK') {
+                                        if(player.Position === 'GK') {
                                             this.state.role = 'GK'
-                                        } else if (player.Position == 'CB' || player.Position == 'LB' || player.Position == 'RB' || player.Position == 'LWB' || player.Position == 'RWB') {
+                                        } else if (player.Position === 'CB' || player.Position === 'LB' || player.Position === 'RB' || player.Position === 'LWB' || player.Position === 'RWB') {
                                             this.state.role = 'DEF'
-                                        }   else if (player.Position == 'CDM' || player.Position == 'LM' || player.Position == 'RM' || player.Position == 'CAM' || player.Position == 'RWM' || player.Position == 'LWM') {
+                                        }   else if (player.Position === 'CDM' || player.Position === 'LM' || player.Position === 'RM' || player.Position === 'CAM' || player.Position === 'RWM' || player.Position === 'LWM') {
                                             this.state.role = 'MID'
-                                        }   else if (player.Position == 'CF' || player.Position == 'LW' || player.Position == 'RW' || player.Position == 'ST' ) {
+                                        }   else if (player.Position === 'CF' || player.Position === 'LW' || player.Position === 'RW' || player.Position === 'ST' ) {
                                             this.state.role = 'ATT'
                                         }
                                         if(!this.state.playerName) {
@@ -324,7 +323,7 @@ class PlayerListAdmin extends React.Component {
                     <TransferModal open={this.state.transferModalOpen} onClose={this.closeTransferModal} player={this.state.singlePlayer}  center/>
                 </div>
             )
-        }
+        
     }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Button, Card } from 'react-bootstrap';
-import {singlePlayerData} from "../APIServices"
+import {singlePlayerData} from "../../APIServices"
 
 import "./playerModal.css";
 

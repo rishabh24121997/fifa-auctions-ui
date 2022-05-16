@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Button, Col, Form } from 'react-bootstrap';
-import {fifaPlayers, playerTransaction} from "../APIServices"
+import {fifaPlayers, playerTransaction} from "../../APIServices"
 
 import "./transferModal.css";
 

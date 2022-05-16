@@ -11,12 +11,13 @@ class HeaderAdmin extends React.Component{
     }
 
     render() {
-        if(this.state.user === "Admin") {
+    
             return (
                 <div className="header">
                     <Navbar>
                         <Navbar.Brand href="/home" style={{color:"#ffffff"}} className="navbar-brand-header">FIFA Auctions</Navbar.Brand>
                         <Nav className="mr-auto">
+                            <Nav.Link href="/auctionAdmin" style={{color:"#ffffff"}}>Auction</Nav.Link>
                             <Nav.Link href="/matchesAdmin" style={{color:"#ffffff"}}>Matches</Nav.Link>
                             <Nav.Link href="/league" style={{color:"#ffffff"}}>League Table</Nav.Link>
                             <Nav.Link href="/transactionsAdmin" style={{color:"#ffffff"}}>Transfers</Nav.Link>
@@ -25,7 +26,7 @@ class HeaderAdmin extends React.Component{
                     </Navbar>
                 </div>
             );
-        }
+        
     }
 }
 

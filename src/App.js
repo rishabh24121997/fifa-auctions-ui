@@ -1,16 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Squads from "./Components/squads"
-import PlayerList from "./Components/playerList"
-import Home from './Components/home';
-import Transactions from './Components/transactions';
-import Matches from './Components/matches';
-import PlayerListAdmin from './Components/playerListAdmin';
-import TransactionsAdmin from './Components/transfersAdmin';
-import LeagueTable from './Components/leagueTable';
-import MatchesAdmin from './Components/matchesAdmin';
-import Login from './Components/login';
+import Squads from "./Components/squad/squads"
+import PlayerList from "./Components/playerList/playerList"
+import Home from './Components/home/home';
+import Transactions from './Components/transactions/transactions';
+import Matches from './Components/matches/matches';
+import PlayerListAdmin from './Components/playerList/playerListAdmin';
+import TransactionsAdmin from './Components/transfer/transfersAdmin';
+import LeagueTable from './Components/leagueTable/leagueTable';
+import MatchesAdmin from './Components/matches/matchesAdmin';
+import Login from './Components/login/login';
+import Auction from './Components/auction/auction';
 require('dotenv').config()
 
 function App() {
@@ -41,6 +42,9 @@ function App() {
         </switch>
         <switch>
           <Route component={MatchesAdmin} exact path="/matchesAdmin"/>
+        </switch>
+        <switch>
+          <Route component={Auction} exact path="/auction"/>
         </switch>
         <switch>
           <Route component={Login} exact path="/"/>

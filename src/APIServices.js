@@ -119,6 +119,32 @@ export const allMatches = async (homeTeam, awayTeam, homeScore, awayScore, seaso
     return response
 }
 
+export const updateFifaPlayerData = async (club, money, teamWorth, salary) => {
+    const url = "http://localhost:8000/api/fifaplayerStats/"+ club;
+    var details = {
+        'money' : money,
+        'teamWorth': teamWorth,
+        'salary': salary
+    };
+    var formBody = [];
+        for (var property in details) {
+        var encodedKey = encodeURIComponent(property);
+        var encodedValue = encodeURIComponent(details[property]);
+        formBody.push(encodedKey + "=" + encodedValue);
+        }
+    formBody = formBody.join("&");      
+    const data = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/x-www-form-urlencoded"
+        },
+        body: formBody
+    })
+
+    const response = await data.json();
+    return response
+}
+
 export const getMatches = async () => {
     const url = "http://localhost:8000/api/allmatches";
     const data = await fetch(url, {

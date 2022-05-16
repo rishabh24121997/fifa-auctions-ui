@@ -1,9 +1,9 @@
 import React from 'react';
-import './home.css';
+import '../home/home.css';
 import {Container, Table} from 'react-bootstrap';
-import Header from './header';
+import Header from '../header/header';
 import {Squad, SquadGridColumns} from "./SquadProps";
-import PlayerModal from './playerModal';
+import PlayerModal from '../playerModal/playerModal';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

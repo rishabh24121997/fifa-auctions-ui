@@ -1,9 +1,9 @@
 import React from 'react';
-import HeaderAdmin from './headerAdmin';
-import './transactions.css';
+import HeaderAdmin from '../header/headerAdmin';
+import '../transactions/transactions.css';
 import { Accordion, Card, Button }from 'react-bootstrap';
-import { TransactionData } from './transactionsList';
-import { allTransactions } from '../APIServices';
+import { TransactionData } from '../transactions/transactionsList';
+import { allTransactions } from '../../APIServices';
 
 
 
@@ -30,7 +30,7 @@ class TransactionsAdmin extends React.Component{
     
 
     render() {
-        if(this.state.user === "Admin") {
+        
             return(
                 <div className="trasactions">
                     <HeaderAdmin />
@@ -38,7 +38,7 @@ class TransactionsAdmin extends React.Component{
                         <div>
                             {this.state.TransactionData.map((transaction, key) => {
                                 // {this.state.totalMoney = this.state.totalMoney - transaction.Price}
-                                if(transaction.Position == 'GK') {
+                                if(transaction.Position === 'GK') {
                                     this.state.role = 'GK'
                                 } else if (transaction.Position === 'CB' || transaction.Position === 'LB' || transaction.Position === 'RB' || transaction.Position === 'LWB' || transaction.Position === 'RWB') {
                                     this.state.role = 'DEF'
@@ -90,7 +90,7 @@ class TransactionsAdmin extends React.Component{
                     </div>
                 </div>
             )
-        }
+        
     }
 }
 

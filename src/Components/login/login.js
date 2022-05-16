@@ -1,14 +1,15 @@
 import React from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
-import {fifaPlayers, playerTransaction} from "../APIServices";
-import "./home.css";
+import {fifaPlayers, playerTransaction} from "../../APIServices";
+import "../home/home.css";
 import { Redirect } from 'react-router-dom';
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            FIFAPlayers: []
+            FIFAPlayers: [],
+            user: "Admin"
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -22,7 +23,6 @@ class Login extends React.Component {
     }
 
     handleChange (e) {
-        console.log(e.target)
         this.setState({
           [e.target.name]: e.target.value
           
@@ -31,8 +31,8 @@ class Login extends React.Component {
 
     onSubmit = () => {
         sessionStorage.setItem("user", this.state.user)
-        console.log(this.state.user)
-        if(this.state.user === "Admin") {
+        if(sessionStorage.getItem("user")) {
+            console.log(sessionStorage.getItem("user"))
             return <Redirect to="/home" />
         }
     }
@@ -51,6 +51,7 @@ class Login extends React.Component {
                                         <option>{fifaPlayer.ID}</option>
                                     )
                                 })}
+                                
                             </Form.Control>
                             </Form.Group>
                             <div className="submit-button">
