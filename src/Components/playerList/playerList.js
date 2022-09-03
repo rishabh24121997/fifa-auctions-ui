@@ -75,8 +75,8 @@ class PlayerList extends React.Component {
                                 <th>Nationality</th>
                                 <th>Height</th>
                                 <th>Weight</th>
-                                <th>Preffered Foot</th>
-                                <th>Weak Foot</th>
+                                <th>Club</th>
+                                <th>Value</th>
                                 <th>Skill Moves</th>
                                 <th>Player Attributes</th>
                             </tr>
@@ -103,8 +103,8 @@ class PlayerList extends React.Component {
                                                     <td>{player.Nationality}</td>
                                                     <td>{player.Height}</td>
                                                     <td>{player.Weight}</td>
-                                                    <td>{player.PrefferedFoot}</td>
-                                                    <td>{player.WeakFoot}</td>
+                                                    <td>{player.Team}</td>
+                                                    <td>{player.Price}</td>
                                                     <td>{player.SkillMoves}</td>
                                                     <td>
                                                         <Button  onClick={() => {this.openModal(player)}}>

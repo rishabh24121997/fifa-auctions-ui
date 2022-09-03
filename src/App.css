@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow-y: scroll;
 }
 
 .App-logo {
@@ -35,4 +36,48 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.squad-main-div {
+  display: flex;
+  margin-top: 3rem;
+}
+
+.left-squad {
+  width: 50%;
+}
+
+.right-squad {
+  width: 50%;
+}
+
+.value {
+  font-size: 1.5rem;
+  position: relative;
+  top: 1rem;
+  font-weight: 900;
+}
+
+.remaining-block {
+  margin-top: 2rem;
+}
+
+.remaining-block-text {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.att-text {
+  color: #004DFE
+}
+
+.def-text {
+  color: #A09402 
+}
+
+.mid-text {
+  color: #7FFE00
+}
+
+.gk-text {
+  color: #FE8E00
 }

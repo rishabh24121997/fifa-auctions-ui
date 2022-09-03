@@ -21,6 +21,10 @@
     font-family: Arial, Helvetica, sans-serif !important;
 }
 
+.table-playerlist table {    
+    overflow-y: auto;
+}
+
 .search-playerlist {
     margin-top: 1rem;
 }

@@ -90,17 +90,16 @@ class PlayerListAdmin extends React.Component {
                         <Table striped bordered hover>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Overall</th>
-                                    <th>Position</th>
-                                    <th>Nationality</th>
-                                    <th>Height</th>
-                                    <th>Weight</th>
-                                    <th>Preffered Foot</th>
-                                    <th>Weak Foot</th>
-                                    <th>Skill Moves</th>
-                                    <th>Player Attributes</th>
-                                    <th>Action</th>
+                                <th>Name</th>
+                                <th>Overall</th>
+                                <th>Position</th>
+                                <th>Nationality</th>
+                                <th>Height</th>
+                                <th>Weight</th>
+                                <th>Club</th>
+                                <th>Value</th>
+                                <th>Skill Moves</th>
+                                <th>Player Attributes</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -125,8 +124,8 @@ class PlayerListAdmin extends React.Component {
                                                         <td>{player.Nationality}</td>
                                                         <td>{player.Height}</td>
                                                         <td>{player.Weight}</td>
-                                                        <td>{player.PrefferedFoot}</td>
-                                                        <td>{player.WeakFoot}</td>
+                                                        <td>{player.Team}</td>
+                                                        <td>{player.Price}</td>
                                                         <td>{player.SkillMoves}</td>
                                                         <td>
                                                             <Button  onClick={() => {this.openModal(player)}}>
@@ -149,8 +148,8 @@ class PlayerListAdmin extends React.Component {
                                                         <td>{player.Nationality}</td>
                                                         <td>{player.Height}</td>
                                                         <td>{player.Weight}</td>
-                                                        <td>{player.PrefferedFoot}</td>
-                                                        <td>{player.WeakFoot}</td>
+                                                        <td>{player.Team}</td>
+                                                        <td>{player.Price}</td>
                                                         <td>{player.SkillMoves}</td>
                                                         <td>
                                                             <Button  onClick={() => {this.openModal(player)}}>
@@ -173,8 +172,8 @@ class PlayerListAdmin extends React.Component {
                                                         <td>{player.Nationality}</td>
                                                         <td>{player.Height}</td>
                                                         <td>{player.Weight}</td>
-                                                        <td>{player.PrefferedFoot}</td>
-                                                        <td>{player.WeakFoot}</td>
+                                                        <td>{player.Team}</td>
+                                                        <td>{player.Price}</td>
                                                         <td>{player.SkillMoves}</td>
                                                         <td>
                                                             <Button  onClick={() => {this.openModal(player)}}>
@@ -197,8 +196,8 @@ class PlayerListAdmin extends React.Component {
                                                         <td>{player.Nationality}</td>
                                                         <td>{player.Height}</td>
                                                         <td>{player.Weight}</td>
-                                                        <td>{player.PrefferedFoot}</td>
-                                                        <td>{player.WeakFoot}</td>
+                                                        <td>{player.Team}</td>
+                                                        <td>{player.Price}</td>
                                                         <td>{player.SkillMoves}</td>
                                                         <td>
                                                             <Button  onClick={() => {this.openModal(player)}}>
@@ -219,14 +218,14 @@ class PlayerListAdmin extends React.Component {
                                                     return (
                                                         <tr className="gk-playerlist">
                                                             <td>{player.Name}</td>
-                                                            <td>{player.Overall}</td>
-                                                            <td>{player.Position}</td>
-                                                            <td>{player.Nationality}</td>
-                                                            <td>{player.Height}</td>
-                                                            <td>{player.Weight}</td>
-                                                            <td>{player.PrefferedFoot}</td>
-                                                            <td>{player.WeakFoot}</td>
-                                                            <td>{player.SkillMoves}</td>
+                                                        <td>{player.Overall}</td>
+                                                        <td>{player.Position}</td>
+                                                        <td>{player.Nationality}</td>
+                                                        <td>{player.Height}</td>
+                                                        <td>{player.Weight}</td>
+                                                        <td>{player.Team}</td>
+                                                        <td>{player.Price}</td>
+                                                        <td>{player.SkillMoves}</td>
                                                             <td>
                                                                 <Button  onClick={() => {this.openModal(player)}}>
                                                                     Details
@@ -243,14 +242,14 @@ class PlayerListAdmin extends React.Component {
                                                     return (
                                                         <tr className="def-playerlist">
                                                             <td>{player.Name}</td>
-                                                            <td>{player.Overall}</td>
-                                                            <td>{player.Position}</td>
-                                                            <td>{player.Nationality}</td>
-                                                            <td>{player.Height}</td>
-                                                            <td>{player.Weight}</td>
-                                                            <td>{player.PrefferedFoot}</td>
-                                                            <td>{player.WeakFoot}</td>
-                                                            <td>{player.SkillMoves}</td>
+                                                        <td>{player.Overall}</td>
+                                                        <td>{player.Position}</td>
+                                                        <td>{player.Nationality}</td>
+                                                        <td>{player.Height}</td>
+                                                        <td>{player.Weight}</td>
+                                                        <td>{player.Team}</td>
+                                                        <td>{player.Price}</td>
+                                                        <td>{player.SkillMoves}</td>
                                                             <td>
                                                                 <Button  onClick={() => {this.openModal(player)}}>
                                                                     Details
@@ -267,14 +266,14 @@ class PlayerListAdmin extends React.Component {
                                                     return (
                                                         <tr className="mid-playerlist">
                                                             <td>{player.Name}</td>
-                                                            <td>{player.Overall}</td>
-                                                            <td>{player.Position}</td>
-                                                            <td>{player.Nationality}</td>
-                                                            <td>{player.Height}</td>
-                                                            <td>{player.Weight}</td>
-                                                            <td>{player.PrefferedFoot}</td>
-                                                            <td>{player.WeakFoot}</td>
-                                                            <td>{player.SkillMoves}</td>
+                                                        <td>{player.Overall}</td>
+                                                        <td>{player.Position}</td>
+                                                        <td>{player.Nationality}</td>
+                                                        <td>{player.Height}</td>
+                                                        <td>{player.Weight}</td>
+                                                        <td>{player.Team}</td>
+                                                        <td>{player.Price}</td>
+                                                        <td>{player.SkillMoves}</td>
                                                             <td>
                                                                 <Button  onClick={() => {this.openModal(player)}}>
                                                                     Details
@@ -291,14 +290,14 @@ class PlayerListAdmin extends React.Component {
                                                     return (
                                                         <tr className="att-playerlist">
                                                             <td>{player.Name}</td>
-                                                            <td>{player.Overall}</td>
-                                                            <td>{player.Position}</td>
-                                                            <td>{player.Nationality}</td>
-                                                            <td>{player.Height}</td>
-                                                            <td>{player.Weight}</td>
-                                                            <td>{player.PrefferedFoot}</td>
-                                                            <td>{player.WeakFoot}</td>
-                                                            <td>{player.SkillMoves}</td>
+                                                        <td>{player.Overall}</td>
+                                                        <td>{player.Position}</td>
+                                                        <td>{player.Nationality}</td>
+                                                        <td>{player.Height}</td>
+                                                        <td>{player.Weight}</td>
+                                                        <td>{player.Team}</td>
+                                                        <td>{player.Price}</td>
+                                                        <td>{player.SkillMoves}</td>
                                                             <td>
                                                                 <Button  onClick={() => {this.openModal(player)}}>
                                                                     Details

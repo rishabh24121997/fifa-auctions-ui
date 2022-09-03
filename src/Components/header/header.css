@@ -1,3 +1,14 @@
+@media only screen and (max-width: 600px) {
+    .navbar  {
+        display: block !important;
+    }
+
+    .navbar-brand-header {
+        margin-left: 0rem !important;
+    }
+}
+
+
 .header {
     display: block;
     background-color: #2b6777;
@@ -15,8 +26,9 @@
     margin-right: 1rem;
 }
 
-
-
+/* .navbar {
+    ;
+} */
 
 .navbar-brand-header {
     color: #fff !important;
@@ -32,7 +44,7 @@
 }
 
 .navbar-nav {
-    display: flex;
+    display: flex;    
     flex-direction: column;
     padding-left: 0px;
     margin-bottom: 0;
@@ -43,3 +55,4 @@
     top: .5rem !important;
     font-family: Arial, Helvetica, sans-serif !important;
 }
+
