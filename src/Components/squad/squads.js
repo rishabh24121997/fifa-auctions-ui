@@ -24,7 +24,9 @@ export default class Squads extends React.Component {
             DEF: 0,
             MID: 0,
             ATT: 0,
-            playerCount: 0
+            playerCount: 0,
+            owner: '',
+            club: ''
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -40,15 +42,15 @@ export default class Squads extends React.Component {
     componentDidUpdate = () => {
         if(this.state.team !== this.state.teamPrev)  {
             squad(this.state.team).then(res => {
+                console.log(res)
                 let GK = 0
                 let DEF = 0
                 let MID = 0
                 let ATT = 0
                 let playerCount = 0
-                let amount = 10000
-                res.data.forEach((element) => {
+                let amount = res.data.fifaPlayer[0].Money
+                res.data.rows.forEach((element) => {
                     playerCount = playerCount + 1
-                    amount = amount - element.Price
                     if(element.Position === 'GK') {
                         GK = GK +1
                     } else if (element.Position === 'CB' || element.Position === 'LB' || element.Position === 'RB' || element.Position === 'LWB' || element.Position === 'RWB') {
@@ -58,14 +60,15 @@ export default class Squads extends React.Component {
                     }   else if (element.Position === 'CF' || element.Position === 'LW' || element.Position === 'RW' || element.Position === 'ST' ) {
                         ATT = ATT +1
                     }
-                    console.log(GK, DEF, MID, ATT)
                 })
                 this.setState({
                     GK, DEF, MID, ATT, playerCount, 
                     value: amount,
-                    teamPlayers: res.data,
+                    teamPlayers: res.data.rows,
                     teamPrev: this.state.team,
-                    value: amount
+                    value: amount,
+                    owner: res.data.fifaPlayer[0].Name,
+                    club: res.data.fifaPlayer[0].Club
                 })
             })
         }
@@ -99,6 +102,8 @@ export default class Squads extends React.Component {
                 <div className="squad-main-div">
                     <div className="left-squad">                        
                         <p>
+                            <span className='owner-text'><strong>Owner: </strong>{this.state.owner}</span><br /> <br />
+                            <span className='owner-text'><strong>Club: </strong>{this.state.club}</span><br /> <br />
                             <span className={this.state.value > 6500 ? "value green" : this.state.value < 3000 ? "value red" : "value yellow"}>{this.state.value}</span><br />
                             
                         </p>
@@ -123,11 +128,11 @@ export default class Squads extends React.Component {
                 </div>
                 <div className="remaining-div">
                     <p className='remaining-block'>
-                            <span className="remaining-block-text">Remaining: {15 - this.state.playerCount}</span><br />
-                            <span className="remaining-block-text gk-text">GK: {2 - this.state.GK}</span><br />
-                            <span className="remaining-block-text def-text">DEF: {4 - this.state.DEF}</span><br />
-                            <span className="remaining-block-text mid-text">MID: {3 - this.state.MID}</span><br />
-                            <span className="remaining-block-text att-text">ATT: {3 - this.state.ATT}</span>
+                            <span className="remaining-block-text">Remaining: {15 - this.state.playerCount >=0 ? 15 - this.state.playerCount : 0}</span><br />
+                            <span className="remaining-block-text gk-text">GK: {2 - this.state.GK >=0 ? 2 - this.state.GK : 0}</span><br />
+                            <span className="remaining-block-text def-text">DEF: {4 - this.state.DEF >=0 ? 4 - this.state.DEF : 0}</span><br />
+                            <span className="remaining-block-text mid-text">MID: {3 - this.state.MID >=0 ? 3 - this.state.MID : 0}</span><br />
+                            <span className="remaining-block-text att-text">ATT: {3 - this.state.ATT >=0 ? 3 - this.state.ATT : 0}</span>
                         </p>
                 </div>
                 <Table striped bordered hover>

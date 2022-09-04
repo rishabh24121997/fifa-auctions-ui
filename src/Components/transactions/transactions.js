@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderAdmin from '../header/headerAdmin';
+import Headers from '../header/header';
 import '../transactions/transactions.css';
 import { Accordion, Card, Button }from 'react-bootstrap';
 import { TransactionData } from '../transactions/transactionsList';
@@ -31,7 +31,7 @@ class Transactions extends React.Component{
     render() {
         return(
             <div className="trasactions">
-                <HeaderAdmin />
+                <Headers />
                 <div className="transactions-body">
                     <div>
                         {this.state.TransactionData.map((transaction, key) => {

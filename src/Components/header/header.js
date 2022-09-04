@@ -22,7 +22,7 @@ class Header extends React.Component{
                         <Nav.Link href="/league" style={{color:"#ffffff"}}>League Table</Nav.Link> */}
                         <Nav.Link href="/" style={{color:"#ffffff"}}>Squad</Nav.Link>
                         <Nav.Link href="/transactions" style={{color:"#ffffff"}}>History</Nav.Link>
-                        <Nav.Link href="/playerList" style={{color:"#ffffff"}}>All Players</Nav.Link>
+                        {/* <Nav.Link href="/playerList" style={{color:"#ffffff"}}>All Players</Nav.Link> */}
                     </Nav>
                 </Navbar>
             </div>
