@@ -26,7 +26,8 @@ export default class Squads extends React.Component {
             ATT: 0,
             playerCount: 0,
             owner: '',
-            club: ''
+            club: '',
+            teamWorth: 0
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -49,20 +50,22 @@ export default class Squads extends React.Component {
                 let ATT = 0
                 let playerCount = 0
                 let amount = res.data.fifaPlayer[0].Money
+                let teamWorth = 0
                 res.data.rows.forEach((element) => {
                     playerCount = playerCount + 1
+                    teamWorth = teamWorth + element.Price
                     if(element.Position === 'GK') {
                         GK = GK +1
                     } else if (element.Position === 'CB' || element.Position === 'LB' || element.Position === 'RB' || element.Position === 'LWB' || element.Position === 'RWB') {
                         DEF = DEF +1
-                    }   else if (element.Position === 'CDM' || element.Position === 'LM' || element.Position === 'RM' || element.Position === 'CAM' || element.Position === 'RWM' || element.Position === 'LWM') {
+                    }   else if (element.Position === 'CDM' || element.Position === 'LM' || element.Position === 'RM' || element.Position === 'CAM' || element.Position === 'RWM' || element.Position === 'LWM' || element.Position === 'CM') {
                         MID = MID +1
                     }   else if (element.Position === 'CF' || element.Position === 'LW' || element.Position === 'RW' || element.Position === 'ST' ) {
                         ATT = ATT +1
                     }
                 })
                 this.setState({
-                    GK, DEF, MID, ATT, playerCount, 
+                    GK, DEF, MID, ATT, playerCount,  teamWorth,
                     value: amount,
                     teamPlayers: res.data.rows,
                     teamPrev: this.state.team,
@@ -104,6 +107,8 @@ export default class Squads extends React.Component {
                         <p>
                             <span className='owner-text'><strong>Owner: </strong>{this.state.owner}</span><br /> <br />
                             <span className='owner-text'><strong>Club: </strong>{this.state.club}</span><br /> <br />
+                            <span className='owner-text'><strong>Team Worth: </strong>{this.state.teamWorth}</span><br /> <br />
+                            <span className='owner-text'><strong>Salary: </strong>{this.state.teamWorth * 0.2}</span><br /> <br />
                             <span className={this.state.value > 6500 ? "value green" : this.state.value < 3000 ? "value red" : "value yellow"}>{this.state.value}</span><br />
                             
                         </p>
@@ -124,17 +129,20 @@ export default class Squads extends React.Component {
                                     </Form.Control>
                                 </Form.Group>
                         </Form>
-                    </div>
-                </div>
-                <div className="remaining-div">
-                    <p className='remaining-block'>
+                        <p className='remaining-block'>
                             <span className="remaining-block-text">Remaining: {15 - this.state.playerCount >=0 ? 15 - this.state.playerCount : 0}</span><br />
                             <span className="remaining-block-text gk-text">GK: {2 - this.state.GK >=0 ? 2 - this.state.GK : 0}</span><br />
                             <span className="remaining-block-text def-text">DEF: {4 - this.state.DEF >=0 ? 4 - this.state.DEF : 0}</span><br />
                             <span className="remaining-block-text mid-text">MID: {3 - this.state.MID >=0 ? 3 - this.state.MID : 0}</span><br />
                             <span className="remaining-block-text att-text">ATT: {3 - this.state.ATT >=0 ? 3 - this.state.ATT : 0}</span>
                         </p>
+                    </div>
+                    {/* <br />
+                    <div className="remaining-div">
+                        
+                    </div> */}
                 </div>
+                
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -165,7 +173,7 @@ export default class Squads extends React.Component {
                                 this.state.role = 'GK'
                             } else if (element.Position === 'CB' || element.Position === 'LB' || element.Position === 'RB' || element.Position === 'LWB' || element.Position === 'RWB') {
                                 this.state.role = 'DEF'
-                            }   else if (element.Position === 'CDM' || element.Position === 'LM' || element.Position === 'RM' || element.Position === 'CAM' || element.Position === 'RWM' || element.Position === 'LWM') {
+                            }   else if (element.Position === 'CDM' || element.Position === 'LM' || element.Position === 'RM' || element.Position === 'CAM' || element.Position === 'RWM' || element.Position === 'LWM' || element.Position === 'CM') {
                                 this.state.role = 'MID'
                             }   else if (element.Position === 'CF' || element.Position === 'LW' || element.Position === 'RW' || element.Position === 'ST' ) {
                                 this.state.role = 'ATT'
