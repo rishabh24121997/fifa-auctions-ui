@@ -24,6 +24,58 @@ export const squad = async (team) => {
     return response
 }
 
+export const listPlayer = async (body) => {
+    const url = "http://localhost:8000/api/listPlayer";
+    var details = {
+        'playerName' : body.playerName,
+        'price': body.price,
+        'team': body.team
+    };
+    var formBody = [];
+        for (var property in details) {
+        var encodedKey = encodeURIComponent(property);
+        var encodedValue = encodeURIComponent(details[property]);
+        formBody.push(encodedKey + "=" + encodedValue);
+        }
+    formBody = formBody.join("&");  
+    const data2 = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/x-www-form-urlencoded"
+        },
+        body: formBody
+    })
+
+    const response = await data2.json();
+    return response
+}
+
+export const minusSalary = async (body) => {
+    const url = "http://localhost:8000/api/minusSalary";
+    var details = {
+        'amount' : body.value,
+        'team': body.team,
+        'salary': body.salary
+    };
+    var formBody = [];
+        for (var property in details) {
+        var encodedKey = encodeURIComponent(property);
+        var encodedValue = encodeURIComponent(details[property]);
+        formBody.push(encodedKey + "=" + encodedValue);
+        }
+    formBody = formBody.join("&");  
+    const data2 = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/x-www-form-urlencoded"
+        },
+        body: formBody
+    })
+
+    const response = await data2.json();
+    return response
+}
+
 export const singlePlayerData = async (playerName) => {
     const url = "http://localhost:8000/api/players/" + playerName;
     const data = await fetch(url, {
@@ -47,6 +99,19 @@ export const fifaPlayers = async () => {
     })
 
     const response = await data.json();
+    return response
+}
+
+export const auctionPlayer = async (body) => {
+    const url = "http://localhost:8000/api/auctionPlayer/" + body.role + "/" + body.rank;
+    const data2 = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json"
+        }
+    })
+
+    const response = await data2.json();
     return response
 }
 

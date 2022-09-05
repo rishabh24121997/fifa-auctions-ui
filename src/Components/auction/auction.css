@@ -89,3 +89,12 @@
 .yellow {
     color: rgb(158, 131, 13);
 }
+
+.timer {
+    font-size: 5rem;
+    color: rgb(153, 10, 10);
+}
+
+.bid-text {
+    font-size: 2rem;
+}

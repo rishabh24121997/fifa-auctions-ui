@@ -5,7 +5,7 @@ import Header from '../header/header';
 import {Squad, SquadGridColumns} from "./SquadProps";
 import PlayerModal from '../playerModal/playerModal';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { squad, fifaPlayers } from '../../APIServices';
+import { squad, fifaPlayers, minusSalary, listPlayer } from '../../APIServices';
 import { Card, Form, Button } from 'react-bootstrap';
 
 export default class Squads extends React.Component {
@@ -43,7 +43,6 @@ export default class Squads extends React.Component {
     componentDidUpdate = () => {
         if(this.state.team !== this.state.teamPrev)  {
             squad(this.state.team).then(res => {
-                console.log(res)
                 let GK = 0
                 let DEF = 0
                 let MID = 0
@@ -84,6 +83,33 @@ export default class Squads extends React.Component {
         
       }
 
+    minusSalaryMethod = () => {
+        const data = {
+            value: this.state.value,
+            salary: this.state.teamWorth * 0.2,
+            team: this.state.team
+        }
+        minusSalary(data).then((response) => {
+            if(response) {
+                window.location.reload()
+            }
+        })
+    }
+
+    lisPlayerMethod = (element) => {
+        const data = {
+            playerName: element.Name,
+            price: this.state.value + element.Price,
+            team: this.state.team
+        }
+        console.log(data)
+        listPlayer(data).then((response) => {
+            if(response) {
+                window.location.reload()
+            }
+        })
+    }
+
     openModal = (player) => {
         this.setState({
             modalOpen: true
@@ -109,8 +135,11 @@ export default class Squads extends React.Component {
                             <span className='owner-text'><strong>Club: </strong>{this.state.club}</span><br /> <br />
                             <span className='owner-text'><strong>Team Worth: </strong>{this.state.teamWorth}</span><br /> <br />
                             <span className='owner-text'><strong>Salary: </strong>{this.state.teamWorth * 0.2}</span><br /> <br />
-                            <span className={this.state.value > 6500 ? "value green" : this.state.value < 3000 ? "value red" : "value yellow"}>{this.state.value}</span><br />
-                            
+                            <span className={this.state.value > 6500 ? "value green" : this.state.value < 3000 ? "value red" : "value yellow"}>{this.state.value}</span><br /> <br/>
+                            <Button 
+                                variant='danger'
+                                onClick={this.minusSalaryMethod}
+                            >Subtract Salary</Button>
                         </p>
                     </div>
                     <div className='right-squad'>
@@ -150,6 +179,7 @@ export default class Squads extends React.Component {
                         <th>{SquadGridColumns.Position}</th>
                         <th>{SquadGridColumns.Price}</th>
                         <th>Player Details</th>
+                        <th>Action</th>
                         </tr>
                     
                     </thead>
@@ -190,6 +220,11 @@ export default class Squads extends React.Component {
                                                     VIEW DETAILS
                                                 </Button>
                                             </td>
+                                            <td>
+                                                <Button  onClick={() => {this.lisPlayerMethod(element)}}>
+                                                    LIST
+                                                </Button>
+                                            </td>
                                         </tr>
                                     )
                                 } else if(this.state.role === "DEF") {
@@ -202,6 +237,11 @@ export default class Squads extends React.Component {
                                             <td>
                                                 <Button  onClick={() => {this.openModal(element)}}>
                                                     VIEW DETAILS
+                                                </Button>
+                                            </td>
+                                            <td>
+                                                <Button  onClick={() => {this.lisPlayerMethod(element)}}>
+                                                    LIST
                                                 </Button>
                                             </td>
                                         </tr>
@@ -218,6 +258,11 @@ export default class Squads extends React.Component {
                                                     VIEW DETAILS
                                                 </Button>
                                             </td>
+                                            <td>
+                                                <Button  onClick={() => {this.lisPlayerMethod(element)}}>
+                                                    LIST
+                                                </Button>
+                                            </td>
                                         </tr>
                                     )
                                 } else if(this.state.role === "ATT") {
@@ -229,6 +274,11 @@ export default class Squads extends React.Component {
                                             <td>
                                                 <Button  onClick={() => {this.openModal(element)}}>
                                                     VIEW DETAILS
+                                                </Button>
+                                            </td>
+                                            <td>
+                                                <Button  onClick={() => {this.lisPlayerMethod(element)}}>
+                                                    LIST
                                                 </Button>
                                             </td>
                                         </tr>
