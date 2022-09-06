@@ -265,9 +265,9 @@ export default class Auction extends Component {
                                         <Button variant='primary'>TEAM</Button>                                        
                                     </div> */}
                                     <div className='col-12' align='center'>   
-                                        <span><strong>{player.Name}</strong></span> <br />
-                                        <span>{player.Club}</span>  <br />                                   
-                                        <span className={player.Money > 6500 ? "green" : player.Money < 3000 ? "red" : "yellow"}>{player.Money}</span> 
+                                        <span style={{fontSize: '1rem'}}><strong>{player.Name}</strong></span> <br />
+                                        <span  style={{fontSize: '1rem'}}>{player.Club}</span>  <br />                                   
+                                        <span  style={{fontSize: '1rem'}} className={player.Money > 6500 ? "green" : player.Money < 3000 ? "red" : "yellow"}>{player.Money}</span> 
                                     </div>                                    
                                 </Card.Body>
                             </Card>

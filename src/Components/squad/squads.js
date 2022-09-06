@@ -86,7 +86,7 @@ export default class Squads extends React.Component {
     minusSalaryMethod = () => {
         const data = {
             value: this.state.value,
-            salary: this.state.teamWorth * 0.2,
+            salary: this.state.teamWorth * 0.1,
             team: this.state.team
         }
         minusSalary(data).then((response) => {
@@ -134,7 +134,7 @@ export default class Squads extends React.Component {
                             <span className='owner-text'><strong>Owner: </strong>{this.state.owner}</span><br /> <br />
                             <span className='owner-text'><strong>Club: </strong>{this.state.club}</span><br /> <br />
                             <span className='owner-text'><strong>Team Worth: </strong>{this.state.teamWorth}</span><br /> <br />
-                            <span className='owner-text'><strong>Salary: </strong>{this.state.teamWorth * 0.2}</span><br /> <br />
+                            <span className='owner-text'><strong>Salary: </strong>{this.state.teamWorth * 0.1}</span><br /> <br />
                             <span className={this.state.value > 6500 ? "value green" : this.state.value < 3000 ? "value red" : "value yellow"}>{this.state.value}</span><br /> <br/>
                             <Button 
                                 variant='danger'
