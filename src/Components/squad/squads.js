@@ -41,6 +41,7 @@ export default class Squads extends React.Component {
     } 
 
     componentDidUpdate = () => {
+       
         if(this.state.team !== this.state.teamPrev)  {
             squad(this.state.team).then(res => {
                 let GK = 0
@@ -48,7 +49,7 @@ export default class Squads extends React.Component {
                 let MID = 0
                 let ATT = 0
                 let playerCount = 0
-                let amount = res.data.fifaPlayer[0].Money
+                let amount =  res.data.fifaPlayer[0].Money
                 let teamWorth = 0
                 res.data.rows.forEach((element) => {
                     playerCount = playerCount + 1
@@ -102,9 +103,9 @@ export default class Squads extends React.Component {
             price: this.state.value + element.Price,
             team: this.state.team
         }
-        console.log(data)
         listPlayer(data).then((response) => {
             if(response) {
+                // window.sessionStorage.setItem("team", this.state.team)
                 window.location.reload()
             }
         })

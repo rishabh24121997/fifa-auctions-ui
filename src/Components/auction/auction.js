@@ -97,7 +97,13 @@ export default class Auction extends Component {
     
     nextPlayer = () => {
         this.setState({
-            rank: this.state.rank + 2
+            rank: this.state.rank + 1
+        })
+    }
+
+    lastPlayer = () => {
+        this.setState({
+            rank: this.state.rank - 1
         })
     }
 
@@ -140,7 +146,6 @@ export default class Auction extends Component {
                 }
             })
             playerTransaction(this.state.player.Name, this.state.bid, this.state.player.Team, club, this.state.player.Position).then(response => {
-                console.log(response)
                 this.setState({
                     timer: 10,
                     startCount: false
@@ -172,6 +177,16 @@ export default class Auction extends Component {
     closeModal = () => {
         this.setState({
             modalOpen: false
+        })
+    }
+
+    unlistPlayer = () => {
+        playerTransaction(this.state.player.Name, this.state.bid, this.state.player.Team, "Unsold", this.state.player.Position).then(response => {
+            this.setState({
+                timer: 10,
+                startCount: false
+            })
+            window.location.reload()
         })
     }
 
@@ -246,7 +261,9 @@ export default class Auction extends Component {
                                         </Form.Control>
                                     </Form.Group>
                             </Form><br/><br/>
-                        <Button variant='primary' onClick={this.nextPlayer}>Next</Button>
+                        <Button variant='primary' className='button-side' onClick={this.lastPlayer}>Back</Button>
+                        <Button variant='primary' className='button-side' onClick={this.nextPlayer}>Next</Button> < br /> < br /> < br />
+                        <Button variant='danger' onClick={this.unlistPlayer}>Unsold</Button>
                     </div>
                 </div>
                 
